@@ -45,7 +45,7 @@ def place_ships(board):
                     placed = True
 
 # Function to validate user input
-def validate_input(guess):
+def validate_input(guess, board):
     if len(guess) != 2:
         return False
     col = guess[0].upper()
@@ -75,28 +75,31 @@ def play_game():
         print('Computer Board:')
         print_board(computer_board, hide_ships=True)
         guess = input('Enter your guess (e.g. A1): ')
-        if not validate_input(guess):
+        
+        # Check if guess is valid
+        if not validate_input(guess, computer_board):  # Now validating against computer's board
             print('Invalid input. Please enter a valid guess.')
             continue
+        
         col = guess[0].upper()
         row = int(guess[1:]) - 1
-        if player_board[row][ord(col) - ord('A')] == 'O':   
-            player_board[row][ord(col) - ord('A')] = 'X'
+        if computer_board[row][ord(col) - ord('A')] == 'O':   # Now guessing on computer's board
+            computer_board[row][ord(col) - ord('A')] = 'X'
             print('Hit!')
         else:
-            player_board[row][ord(col) - ord('A')] = 'M'
+            computer_board[row][ord(col) - ord('A')] = 'M'
             print('Miss!')
         guesses += 1
-        if all(all(cell != 'O' for cell in row) for row in player_board):
+        if all(all(cell != 'O' for cell in row) for row in computer_board):  # Checking computer's board
             print('Game Ended')
             print(f'Total Guesses: {guesses}')
             break
-        computer_row, computer_col = computer_guess(computer_board)
-        if computer_board[computer_row][computer_col] == 'O':
-            computer_board[computer_row][computer_col] = 'X'
+        computer_row, computer_col = computer_guess(player_board)  # Now computer guesses on player's board
+        if player_board[computer_row][computer_col] == 'O':  # Now guessing on player's board
+            player_board[computer_row][computer_col] = 'X'
             print('Computer hit your ship!')
         else:
-            computer_board[computer_row][computer_col] = 'M'
+            player_board[computer_row][computer_col] = 'M'
             print('Computer missed your ship!')
         print(f"Computer guessed {chr(computer_col + ord('A'))}{computer_row + 1}")
 
