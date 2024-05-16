@@ -69,20 +69,31 @@ def play_game():
     place_ships(player_board)
     place_ships(computer_board)
     guesses = 0
+    guessed_coords = set()  # Set to store guessed coordinates
+
     while True:
         print('Player Board:')
         print_board(player_board)
         print('Computer Board:')
         print_board(computer_board, hide_ships=True)
         guess = input('Enter your guess (e.g. A1): ')
-        
+
         # Check if guess is valid
-        if not validate_input(guess, computer_board):  # Now validating against computer's board
+        if not validate_input(guess, computer_board):
             print('Invalid input. Please enter a valid guess.')
             continue
-        
+
+        # Check if guess has already been made
         col = guess[0].upper()
         row = int(guess[1:]) - 1
+        if (row, ord(col) - ord('A')) in guessed_coords:
+            print('You have already guessed that coordinate. Please try again.')
+            continue
+
+        # Add current guess to guessed coordinates
+        guessed_coords.add((row, ord(col) - ord('A')))
+
+        # Process the guess
         if computer_board[row][ord(col) - ord('A')] == 'O':   # Now guessing on computer's board
             computer_board[row][ord(col) - ord('A')] = 'X'
             print('Hit!')
