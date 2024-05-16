@@ -114,6 +114,10 @@ def play_game():
     global ships
     player_board = create_board()
     computer_board = create_board()
+
+    print('Placing ships on the board...')
+    time.sleep(2)
+
     place_ships(player_board)
     place_ships(computer_board)
     player_ships_sunk = {'Carrier': False, 'Battleship': False, 'Cruiser': False, 'Submarine': False, 'Destroyer': False}
