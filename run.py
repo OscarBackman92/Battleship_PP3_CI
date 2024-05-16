@@ -1,4 +1,5 @@
 import random
+import re
 
 # Define ships globally
 ships = {'Carrier': 5, 'Battleship': 4, 'Cruiser': 3, 'Submarine': 3, 'Destroyer': 2}
@@ -57,6 +58,14 @@ def validate_input(guess, board):
         return False
     return True
 
+# Function to validate name input
+def validate_name(name):
+    if not name.strip():  # Check if name is empty or contains only whitespace
+        return False
+    if re.match(r'^[0-9]', name):  # Check if name starts with a number
+        return False
+    return True
+
 # Function for computer to make a random guess
 def computer_guess(board):
     while True:
@@ -76,6 +85,12 @@ def play_game():
     computer_ships_sunk = {'Carrier': False, 'Battleship': False, 'Cruiser': False, 'Submarine': False, 'Destroyer': False}
     guesses = 0
     guessed_coords = set()  # Set to store guessed coordinates
+
+    # Validate name input
+    name = input('Enter your name: ')
+    while not validate_name(name):
+        print('Invalid name. Please enter a valid name.')
+        name = input('Enter your name: ')
 
     while True:
         print('Player Board:')
@@ -117,7 +132,7 @@ def play_game():
                     break
         else:
             computer_board[row][ord(col) - ord('A')] = 'M'
-            print(f'{name} Missed!')
+            print('Miss!')
 
         guesses += 1
         if all(computer_ships_sunk.values()):
@@ -150,8 +165,6 @@ def play_game():
 
 # Main program
 print('Welcome to Battleship!')
-name = input('Enter your name: ')
-print(f'Hello, {name}!')
 input('Press Enter to start the game...')
 play_game()
 print('Thanks for playing!')
