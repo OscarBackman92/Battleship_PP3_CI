@@ -1,5 +1,8 @@
 import random
 
+# Define ships globally
+ships = {'Carrier': 5, 'Battleship': 4, 'Cruiser': 3, 'Submarine': 3, 'Destroyer': 2}
+
 # Function to create an empty board
 def create_board():
     board = []
@@ -24,7 +27,7 @@ def print_board(board, hide_ships=False):
 
 # Function to place ships randomly on the board
 def place_ships(board):
-    ships = {'Carrier': 5, 'Battleship': 4, 'Cruiser': 3, 'Submarine': 3, 'Destroyer': 2}
+    global ships
     for ship, size in ships.items():
         placed = False
         while not placed:
@@ -64,10 +67,13 @@ def computer_guess(board):
 
 # Function to play the game
 def play_game():
+    global ships
     player_board = create_board()
     computer_board = create_board()
     place_ships(player_board)
     place_ships(computer_board)
+    player_ships_sunk = {'Carrier': False, 'Battleship': False, 'Cruiser': False, 'Submarine': False, 'Destroyer': False}
+    computer_ships_sunk = {'Carrier': False, 'Battleship': False, 'Cruiser': False, 'Submarine': False, 'Destroyer': False}
     guesses = 0
     guessed_coords = set()  # Set to store guessed coordinates
 
@@ -76,7 +82,12 @@ def play_game():
         print_board(player_board)
         print('Computer Board:')
         print_board(computer_board, hide_ships=True)
-        guess = input('Enter your guess (e.g. A1): ')
+        guess = input('Enter your guess (e.g. A1), or type "exit" to quit: ')
+
+        # Check if the player wants to exit
+        if guess.lower() == 'exit':
+            print('Quitting the game...')
+            return
 
         # Check if guess is valid
         if not validate_input(guess, computer_board):
@@ -97,22 +108,45 @@ def play_game():
         if computer_board[row][ord(col) - ord('A')] == 'O':   # Now guessing on computer's board
             computer_board[row][ord(col) - ord('A')] = 'X'
             print('Hit!')
+            # Check if a ship has been sunk
+            for ship, size in ships.items():
+                if all(cell == 'X' for cell in computer_board[row]) or \
+                        all(computer_board[i][ord(col) - ord('A')] == 'X' for i in range(9)):
+                    print(f'Computer {ship} sunk!')
+                    computer_ships_sunk[ship] = True
+                    break
         else:
             computer_board[row][ord(col) - ord('A')] = 'M'
-            print('Miss!')
+            print(f'{name} Missed!')
+
         guesses += 1
-        if all(all(cell != 'O' for cell in row) for row in computer_board):  # Checking computer's board
-            print('Game Ended')
+        if all(computer_ships_sunk.values()):
+            print('Congratulations! You sunk all the computer\'s ships. You win!')
             print(f'Total Guesses: {guesses}')
             break
+
         computer_row, computer_col = computer_guess(player_board)  # Now computer guesses on player's board
         if player_board[computer_row][computer_col] == 'O':  # Now guessing on player's board
             player_board[computer_row][computer_col] = 'X'
             print('Computer hit your ship!')
+            # Check if a ship has been sunk
+            for ship, size in ships.items():
+                if all(cell == 'X' for cell in player_board[computer_row]) or \
+                        all(player_board[i][computer_col] == 'X' for i in range(9)):
+                    print(f'Your {ship} has been sunk!')
+                    player_ships_sunk[ship] = True
+                    break
         else:
             player_board[computer_row][computer_col] = 'M'
-            print('Computer missed your ship!')
-        print(f"Computer guessed {chr(computer_col + ord('A'))}{computer_row + 1}")
+            print(f"Computer guessed {chr(computer_col + ord('A'))}{computer_row + 1}")
+
+        guesses += 1
+        if all(player_ships_sunk.values()):
+            print('Game Over! All your ships have been sunk. Better luck next time.')
+            print(f'Total Guesses: {guesses}')
+            break
+
+        print('Computer missed your ship!')
 
 # Main program
 print('Welcome to Battleship!')
@@ -120,3 +154,4 @@ name = input('Enter your name: ')
 print(f'Hello, {name}!')
 input('Press Enter to start the game...')
 play_game()
+print('Thanks for playing!')
