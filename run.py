@@ -159,10 +159,13 @@ def play_game():
         guessed_coords.add((row, ord(col) - ord('A')))
 
         # Process the guess
-        if computer_board[row][ord(col) - ord('A')] == 'O':   # Now guessing on computer's board
+        # Now guessing on computer's board
+        if computer_board[row][ord(col) - ord('A')] == 'O':   
             computer_board[row][ord(col) - ord('A')] = 'X'
             print('Hit!')
-            time.sleep(1)  # Add delay for dramatic effect
+
+            # Add delay for dramatic effect
+            time.sleep(1)  
 
             # Check if a ship has been sunk
             for ship, size in ships.items():
@@ -181,11 +184,17 @@ def play_game():
             print(f'Total Guesses: {guesses}')
             break
 
-        computer_row, computer_col = computer_guess(player_board)  # Now computer guesses on player's board
-        if player_board[computer_row][computer_col] == 'O':  # Now guessing on player's board
+        # Now computer guesses on player's board
+        computer_row, computer_col = computer_guess(player_board)  
+
+        # Now guessing on player's board
+        if player_board[computer_row][computer_col] == 'O':  
             player_board[computer_row][computer_col] = 'X'
             print('Computer hit your ship!')
-            time.sleep(1)  # Add delay for dramatic effect
+
+            # Add delay for dramatic effect
+            time.sleep(1)  
+
             # Check if a ship has been sunk
             for ship, size in ships.items():
                 if all(cell == 'X' for cell in player_board[computer_row]) or \
