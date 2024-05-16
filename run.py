@@ -1,3 +1,4 @@
+import time
 import random
 import re
 
@@ -157,6 +158,8 @@ def play_game():
         if computer_board[row][ord(col) - ord('A')] == 'O':   # Now guessing on computer's board
             computer_board[row][ord(col) - ord('A')] = 'X'
             print('Hit!')
+            time.sleep(1)  # Add delay for dramatic effect
+
             # Check if a ship has been sunk
             for ship, size in ships.items():
                 if all(cell == 'X' for cell in computer_board[row]) or \
@@ -178,6 +181,7 @@ def play_game():
         if player_board[computer_row][computer_col] == 'O':  # Now guessing on player's board
             player_board[computer_row][computer_col] = 'X'
             print('Computer hit your ship!')
+            time.sleep(1)  # Add delay for dramatic effect
             # Check if a ship has been sunk
             for ship, size in ships.items():
                 if all(cell == 'X' for cell in player_board[computer_row]) or \
@@ -196,6 +200,7 @@ def play_game():
             break
 
         print('Computer missed your ship!')
+        time.sleep(1)
 
 # Main function to start the game
 
