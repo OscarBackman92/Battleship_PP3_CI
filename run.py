@@ -4,7 +4,9 @@ import re
 # Define ships globally
 ships = {'Carrier': 5, 'Battleship': 4, 'Cruiser': 3, 'Submarine': 3, 'Destroyer': 2}
 
-# Function to create an empty board
+"""
+    This function creates a 9x9 empty board with all cells initialized to ' '.
+"""
 def create_board():
     board = []
     for _ in range(9):
@@ -12,7 +14,10 @@ def create_board():
         board.append(row)
     return board
 
-# Function to print the board
+"""
+    This function prints the board with the specified rows and columns.
+    The board is printed with row numbers on the left and column letters on the top.
+"""
 def print_board(board, hide_ships=False):
     print('   A B C D E F G H I')
     print('  -------------------')
@@ -26,7 +31,15 @@ def print_board(board, hide_ships=False):
         print(f'{i+1} |{"|".join(row)}|')
         print('  -------------------')
 
-# Function to place ships randomly on the board
+
+"""
+    This function randomly places the ships on the board.
+    It checks if the ship can be placed in the specified orientation (horizontal or vertical)
+    without overlapping with other ships or going out of bounds.
+    If the ship can be placed, it updates the board with the ship's position.
+    The function continues to place ships until all ships have been placed successfully.
+"""
+
 def place_ships(board):
     global ships
     for ship, size in ships.items():
@@ -48,7 +61,11 @@ def place_ships(board):
                         board[row+i][col] = 'O'
                     placed = True
 
-# Function to validate user input
+"""
+    This function validates the user's input for the guess.
+    It checks if the input is in the correct format (e.g., 'A1') and within the valid range.
+    If the input is valid, it returns True; otherwise, it returns False.
+"""
 def validate_input(guess, board):
     if len(guess) != 2:
         return False
@@ -58,7 +75,14 @@ def validate_input(guess, board):
         return False
     return True
 
-# Function to validate name input
+
+"""
+    This function validates the user's input for the name.
+    It checks if the input is empty or contains only whitespace.
+    It also checks if the name starts with a number.
+    If the input is valid, it returns True; otherwise, it returns False.
+
+"""
 def validate_name(name):
     if not name.strip():  # Check if name is empty or contains only whitespace
         return False
@@ -66,7 +90,11 @@ def validate_name(name):
         return False
     return True
 
-# Function for computer to make a random guess
+"""
+    This function generates a random guess for the computer player.
+    It randomly selects a row and column on the board that has not been guessed before.
+    If the selected cell is empty or contains a ship, it returns the row and column.
+"""
 def computer_guess(board):
     while True:
         row = random.randint(0, 8)
@@ -74,7 +102,13 @@ def computer_guess(board):
         if board[row][col] == ' ' or board[row][col] == 'O':
             return row, col
 
-# Function to play the game
+"""
+    This function is the main game loop where the player and computer take turns guessing each other's ships.
+    It displays the player's board, the computer's board, and prompts the player to enter a guess.
+    The player can enter 'exit' to quit the game at any time.
+    The game continues until all the ships of either the player or the computer have been sunk.
+    It also keeps track of the number of guesses made by the player and the computer.
+"""
 def play_game():
     global ships
     player_board = create_board()
@@ -163,7 +197,8 @@ def play_game():
 
         print('Computer missed your ship!')
 
-# Main program
+# Main function to start the game
+
 print('Welcome to Battleship!')
 input('Press Enter to start the game...')
 play_game()
