@@ -5,21 +5,24 @@ import re
 # Define ships globally
 ships = {'Carrier': 5, 'Battleship': 4, 'Cruiser': 3, 'Submarine': 3, 'Destroyer': 2}
 
-"""
-    This function creates a 9x9 empty board with all cells initialized to ' '.
-"""
+
 def create_board():
+    """
+    This function creates a 9x9 empty board with all cells initialized to ' '.
+    """
     board = []
     for _ in range(9):
         row = [' '] * 9
         board.append(row)
     return board
 
-"""
-    This function prints the board with the specified rows and columns.
-    The board is printed with row numbers on the left and column letters on the top.
-"""
+
 def print_board(board, hide_ships=False):
+    """
+    This function prints the board with the specified rows and columns.
+    The board is printed with row numbers on the left and column letters
+     on the top.
+    """
     print('   A B C D E F G H I')
     print('  -------------------')
     for i in range(9):
@@ -33,15 +36,18 @@ def print_board(board, hide_ships=False):
         print('  -------------------')
 
 
-"""
-    This function randomly places the ships on the board.
-    It checks if the ship can be placed in the specified orientation (horizontal or vertical)
-    without overlapping with other ships or going out of bounds.
-    If the ship can be placed, it updates the board with the ship's position.
-    The function continues to place ships until all ships have been placed successfully.
-"""
 
 def place_ships(board):
+    """
+    This function randomly places the ships on the board.
+    It checks if the ship can be placed in the specified orientation
+    (horizontal or vertical)
+    without overlapping with other ships or going out of bounds.
+    If the ship can be placed, it updates the board with
+    the ship's position.
+    The function continues to place ships until all ships
+    have been placed successfully.
+    """
     global ships
     for ship, size in ships.items():
         placed = False
@@ -62,12 +68,13 @@ def place_ships(board):
                         board[row+i][col] = 'O'
                     placed = True
 
-"""
-    This function validates the user's input for the guess.
-    It checks if the input is in the correct format (e.g., 'A1') and within the valid range.
-    If the input is valid, it returns True; otherwise, it returns False.
-"""
 def validate_input(guess, board):
+    """
+    This function validates the user's input for the guess.
+    It checks if the input is in the correct format (e.g., 'A1')
+    and within the valid range.
+    If the input is valid, it returns True; otherwise, it returns False.
+    """
     if len(guess) != 2:
         return False
     col = guess[0].upper()
