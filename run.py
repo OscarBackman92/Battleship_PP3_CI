@@ -113,10 +113,13 @@ def computer_guess(board):
 
 def play_game():
     """
-    This function is the main game loop where the player and computer take turns guessing each other's ships.
-    It displays the player's board, the computer's board, and prompts the player to enter a guess.
+    This function is the main game loop where the player and
+    computer take turns guessing each other's ships.
+    It displays the player's board, the computer's board,
+    and prompts the player to enter a guess.
     The player can enter 'exit' to quit the game at any time.
-    The game continues until all the ships of either the player or the computer have been sunk.
+    The game continues until all the ships of either
+    the player or the computer have been sunk.
     It also keeps track of the number of guesses made by the player and the computer.
     """
     # Game instructions
@@ -168,7 +171,7 @@ def play_game():
         # Check if the player wants to exit
         if guess.lower() == 'exit':
             print('Quitting the game...')
-            return
+            return name
         time.sleep(1)
 
         # Check if guess is valid
@@ -243,7 +246,10 @@ def play_game():
         print('Computer missed your ship!')
         time.sleep(1)
 
+    return name
+
 # Main function to start the game
 
-play_game()
-print('Thanks for playing!')
+player_name = play_game()
+time.sleep(1)
+print(f'Thanks for playing! Goodbye, {player_name}!')
