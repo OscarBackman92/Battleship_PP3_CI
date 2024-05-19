@@ -5,7 +5,6 @@ import re
 # Define ships globally
 ships = {'Carrier': 5, 'Battleship': 4, 'Cruiser': 3, 'Submarine': 3, 'Destroyer': 2}
 
-
 def create_board():
     """
     This function creates a 9x9 empty board with all cells initialized to ' '.
@@ -15,7 +14,6 @@ def create_board():
         row = [' '] * 9
         board.append(row)
     return board
-
 
 def print_board(board, hide_ships=False):
     """
@@ -35,7 +33,6 @@ def print_board(board, hide_ships=False):
         print(f'{i+1} |{"|".join(row)}|')
         print('  -------------------')
 
-
 def place_ships(board):
     """
     This function randomly places the ships on the board.
@@ -48,6 +45,7 @@ def place_ships(board):
     have been placed successfully.
     """
     global ships
+    ship_positions = {ship: [] for ship in ships}
     for ship, size in ships.items():
         placed = False
         while not placed:
@@ -58,6 +56,7 @@ def place_ships(board):
                 if all(board[row][col+i] == ' ' for i in range(size)):
                     for i in range(size):
                         board[row][col+i] = 'O'
+                        ship_positions[ship].append((row, col+i))
                     placed = True
             else:
                 row = random.randint(0, 9 - size)
@@ -65,8 +64,9 @@ def place_ships(board):
                 if all(board[row+i][col] == ' ' for i in range(size)):
                     for i in range(size):
                         board[row+i][col] = 'O'
+                        ship_positions[ship].append((row+i, col))
                     placed = True
-
+    return ship_positions
 
 def validate_input(guess, board):
     """
@@ -83,7 +83,6 @@ def validate_input(guess, board):
         return False
     return True
 
-
 def validate_name(name):
     """
     This function validates the user's input for the name.
@@ -97,7 +96,6 @@ def validate_name(name):
         return False
     return True
 
-
 def computer_guess(board):
     """
     This function generates a random guess for the computer player.
@@ -110,6 +108,16 @@ def computer_guess(board):
         if board[row][col] == ' ' or board[row][col] == 'O':
             return row, col
 
+def is_ship_sunk(ship_positions, board, ship):
+    """
+    This function checks if a specific ship has been sunk.
+    It returns True if all parts of the ship have been hit ('X'), otherwise False.
+    """
+    for position in ship_positions[ship]:
+        row, col = position
+        if board[row][col] != 'X':
+            return False
+    return True
 
 def play_game():
     """
@@ -154,10 +162,10 @@ def play_game():
     print('Placing ships on the board...')
     time.sleep(2)
 
-    place_ships(player_board)
-    place_ships(computer_board)
-    player_ships_sunk = {'Carrier': False, 'Battleship': False, 'Cruiser': False, 'Submarine': False, 'Destroyer': False}
-    computer_ships_sunk = {'Carrier': False, 'Battleship': False, 'Cruiser': False, 'Submarine': False, 'Destroyer': False}
+    player_ship_positions = place_ships(player_board)
+    computer_ship_positions = place_ships(computer_board)
+    player_ships_sunk = {ship: False for ship in ships}
+    computer_ships_sunk = {ship: False for ship in ships}
     guesses = 0
     guessed_coords = set()  # Set to store guessed coordinates
 
@@ -199,12 +207,12 @@ def play_game():
             time.sleep(1)
 
             # Check if a ship has been sunk
-            for ship, size in ships.items():
-                if all(cell == 'X' for cell in computer_board[row]) or \
-                        all(computer_board[i][ord(col) - ord('A')] == 'X' for i in range(9)):
-                    print(f'Computer {ship} sunk!')
-                    computer_ships_sunk[ship] = True
-                    break
+            for ship in ships:
+                if is_ship_sunk(computer_ship_positions, computer_board, ship):
+                    if not computer_ships_sunk[ship]:
+                        print(f'You sunk the computer\'s {ship}!')
+                        computer_ships_sunk[ship] = True
+
         else:
             computer_board[row][ord(col) - ord('A')] = 'M'
             print('Miss!')
@@ -227,12 +235,12 @@ def play_game():
             time.sleep(1)
 
             # Check if a ship has been sunk
-            for ship, size in ships.items():
-                if all(cell == 'X' for cell in player_board[computer_row]) or \
-                        all(player_board[i][computer_col] == 'X' for i in range(9)):
-                    print(f'Your {ship} has been sunk!')
-                    player_ships_sunk[ship] = True
-                    break
+            for ship in ships:
+                if is_ship_sunk(player_ship_positions, player_board, ship):
+                    if not player_ships_sunk[ship]:
+                        print(f'The computer sunk your {ship}!')
+                        player_ships_sunk[ship] = True
+
         else:
             player_board[computer_row][computer_col] = 'M'
             print(f"Computer guessed {chr(computer_col + ord('A'))}{computer_row + 1}")
