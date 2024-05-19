@@ -153,10 +153,10 @@ def play_game():
     print("""
     Instructions:
     1. Enter your name when prompted.
-    2. The game board is a 9x9 grid labeled with rows 1-9 and columns A-I.
-    3. Ships will be placed randomly on both your board and the computer's board.
-    4. Guess the location of the computer's ships by entering coordinates (e.g., A1, B3).
-    5. The game will indicate a 'Hit' if you hit a ship and a 'Miss' if you miss.
+    2. The game will create a 9x9 board for you and the computer.
+    3. Ships will be placed randomly on the board.
+    4. Guess the position of the enemy ships by entering a coordinate (e.g. A1)
+    5. The computer will tell you if your guess was a hit or a miss.
     6. The computer will also guess the location of your ships.
     7. The first to sink all the opponent's ships wins the game.
     8. You can exit the game at any time by typing 'exit' during your turn.
@@ -209,7 +209,7 @@ def play_game():
         col = guess[0].upper()
         row = int(guess[1:]) - 1
         if (row, ord(col) - ord('A')) in guessed_coords:
-            print('You have already guessed that coordinate. Please try again.')
+            print('You have already guessed that coordinate. Try again.')
             continue
 
         # Add current guess to guessed coordinates
@@ -237,7 +237,7 @@ def play_game():
 
         guesses += 1
         if all(computer_ships_sunk.values()):
-            print('Congratulations! You sunk all the computer\'s ships. You win!')
+            print('Victory! You sunk all the computer\'s ships. You win!')
             print(f'Total Guesses: {guesses}')
             break
 
@@ -261,11 +261,11 @@ def play_game():
 
         else:
             player_board[computer_row][computer_col] = 'M'
-            print(f"Computer guessed {chr(computer_col + ord('A'))}{computer_row + 1}")
+            print(f"Enemy {chr(computer_col + ord('A'))}{computer_row + 1}")
 
         guesses += 1
         if all(player_ships_sunk.values()):
-            print('Game Over! All your ships have been sunk. Better luck next time.')
+            print('Victory! You sunk all the computer\'s ships. You win!')
             print(f'Total Guesses: {guesses}')
             break
 
