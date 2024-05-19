@@ -36,7 +36,6 @@ def print_board(board, hide_ships=False):
         print('  -------------------')
 
 
-
 def place_ships(board):
     """
     This function randomly places the ships on the board.
@@ -68,6 +67,7 @@ def place_ships(board):
                         board[row+i][col] = 'O'
                     placed = True
 
+
 def validate_input(guess, board):
     """
     This function validates the user's input for the guess.
@@ -84,26 +84,26 @@ def validate_input(guess, board):
     return True
 
 
-"""
+def validate_name(name):
+    """
     This function validates the user's input for the name.
     It checks if the input is empty or contains only whitespace.
     It also checks if the name starts with a number.
     If the input is valid, it returns True; otherwise, it returns False.
-
-"""
-def validate_name(name):
+    """
     if not name.strip():  # Check if name is empty or contains only whitespace
         return False
     if re.match(r'^[0-9]', name):  # Check if name starts with a number
         return False
     return True
 
-"""
+
+def computer_guess(board):
+    """
     This function generates a random guess for the computer player.
     It randomly selects a row and column on the board that has not been guessed before.
     If the selected cell is empty or contains a ship, it returns the row and column.
-"""
-def computer_guess(board):
+    """
     while True:
         row = random.randint(0, 8)
         col = random.randint(0, 8)
@@ -119,6 +119,22 @@ def play_game():
     The game continues until all the ships of either the player or the computer have been sunk.
     It also keeps track of the number of guesses made by the player and the computer.
     """
+    # Game instructions
+    print("Welcome to Battleship!")
+    print("""
+    Instructions:
+    1. Enter your name when prompted.
+    2. The game board is a 9x9 grid labeled with rows 1-9 and columns A-I.
+    3. Ships will be placed randomly on both your board and the computer's board.
+    4. Guess the location of the computer's ships by entering coordinates (e.g., A1, B3).
+    5. The game will indicate a 'Hit' if you hit a ship and a 'Miss' if you miss.
+    6. The computer will also guess the location of your ships.
+    7. The first to sink all the opponent's ships wins the game.
+    8. You can exit the game at any time by typing 'exit' during your turn.
+    """)
+
+    time.sleep(2)
+
     # Validate name input
     name = input('Enter your name: ')
     while not validate_name(name):
@@ -142,7 +158,6 @@ def play_game():
     guesses = 0
     guessed_coords = set()  # Set to store guessed coordinates
 
-
     while True:
         print('Player Board:')
         print_board(player_board)
@@ -154,6 +169,7 @@ def play_game():
         if guess.lower() == 'exit':
             print('Quitting the game...')
             return
+        time.sleep(1)
 
         # Check if guess is valid
         if not validate_input(guess, computer_board):
@@ -172,12 +188,12 @@ def play_game():
 
         # Process the guess
         # Now guessing on computer's board
-        if computer_board[row][ord(col) - ord('A')] == 'O':   
+        if computer_board[row][ord(col) - ord('A')] == 'O':
             computer_board[row][ord(col) - ord('A')] = 'X'
             print('Hit!')
 
             # Add delay for dramatic effect
-            time.sleep(1)  
+            time.sleep(1)
 
             # Check if a ship has been sunk
             for ship, size in ships.items():
@@ -197,15 +213,15 @@ def play_game():
             break
 
         # Now computer guesses on player's board
-        computer_row, computer_col = computer_guess(player_board)  
+        computer_row, computer_col = computer_guess(player_board)
 
         # Now guessing on player's board
-        if player_board[computer_row][computer_col] == 'O':  
+        if player_board[computer_row][computer_col] == 'O':
             player_board[computer_row][computer_col] = 'X'
             print('Computer hit your ship!')
 
             # Add delay for dramatic effect
-            time.sleep(1)  
+            time.sleep(1)
 
             # Check if a ship has been sunk
             for ship, size in ships.items():
@@ -229,6 +245,5 @@ def play_game():
 
 # Main function to start the game
 
-print('Welcome to Battleship!')
 play_game()
 print('Thanks for playing!')
