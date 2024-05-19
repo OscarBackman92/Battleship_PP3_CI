@@ -110,14 +110,24 @@ def computer_guess(board):
         if board[row][col] == ' ' or board[row][col] == 'O':
             return row, col
 
-"""
+
+def play_game():
+    """
     This function is the main game loop where the player and computer take turns guessing each other's ships.
     It displays the player's board, the computer's board, and prompts the player to enter a guess.
     The player can enter 'exit' to quit the game at any time.
     The game continues until all the ships of either the player or the computer have been sunk.
     It also keeps track of the number of guesses made by the player and the computer.
-"""
-def play_game():
+    """
+    # Validate name input
+    name = input('Enter your name: ')
+    while not validate_name(name):
+        print('Invalid name. Please enter a valid name.')
+        name = input('Enter your name: ')
+        time.sleep(1)
+
+    input('Press Enter to start the game...')
+
     global ships
     player_board = create_board()
     computer_board = create_board()
@@ -132,11 +142,6 @@ def play_game():
     guesses = 0
     guessed_coords = set()  # Set to store guessed coordinates
 
-    # Validate name input
-    name = input('Enter your name: ')
-    while not validate_name(name):
-        print('Invalid name. Please enter a valid name.')
-        name = input('Enter your name: ')
 
     while True:
         print('Player Board:')
@@ -225,6 +230,5 @@ def play_game():
 # Main function to start the game
 
 print('Welcome to Battleship!')
-input('Press Enter to start the game...')
 play_game()
 print('Thanks for playing!')
