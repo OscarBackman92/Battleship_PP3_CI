@@ -3,7 +3,14 @@ import random
 import re
 
 # Define ships globally
-ships = {'Carrier': 5, 'Battleship': 4, 'Cruiser': 3, 'Submarine': 3, 'Destroyer': 2}
+ships = {
+    'Carrier': 5,
+    'Battleship': 4,
+    'Cruiser': 3,
+    'Submarine': 3,
+    'Destroyer': 2
+}
+
 
 def create_board():
     """
@@ -15,11 +22,12 @@ def create_board():
         board.append(row)
     return board
 
+
 def print_board(board, hide_ships=False):
     """
     This function prints the board with the specified rows and columns.
     The board is printed with row numbers on the left and column letters
-     on the top.
+    on the top.
     """
     print('   A B C D E F G H I')
     print('  -------------------')
@@ -33,12 +41,13 @@ def print_board(board, hide_ships=False):
         print(f'{i+1} |{"|".join(row)}|')
         print('  -------------------')
 
+
 def place_ships(board):
     """
     This function randomly places the ships on the board.
     It checks if the ship can be placed in the specified orientation
-    (horizontal or vertical)
-    without overlapping with other ships or going out of bounds.
+    (horizontal or vertical) without overlapping with other ships
+    or going out of bounds.
     If the ship can be placed, it updates the board with
     the ship's position.
     The function continues to place ships until all ships
@@ -53,20 +62,21 @@ def place_ships(board):
             if orientation == 'horizontal':
                 row = random.randint(0, 8)
                 col = random.randint(0, 9 - size)
-                if all(board[row][col+i] == ' ' for i in range(size)):
+                if all(board[row][col + i] == ' ' for i in range(size)):
                     for i in range(size):
-                        board[row][col+i] = 'O'
-                        ship_positions[ship].append((row, col+i))
+                        board[row][col + i] = 'O'
+                        ship_positions[ship].append((row, col + i))
                     placed = True
             else:
                 row = random.randint(0, 9 - size)
                 col = random.randint(0, 8)
-                if all(board[row+i][col] == ' ' for i in range(size)):
+                if all(board[row + i][col] == ' ' for i in range(size)):
                     for i in range(size):
-                        board[row+i][col] = 'O'
-                        ship_positions[ship].append((row+i, col))
+                        board[row + i][col] = 'O'
+                        ship_positions[ship].append((row + i, col))
                     placed = True
     return ship_positions
+
 
 def validate_input(guess, board):
     """
@@ -83,6 +93,7 @@ def validate_input(guess, board):
         return False
     return True
 
+
 def validate_name(name):
     """
     This function validates the user's input for the name.
@@ -96,11 +107,14 @@ def validate_name(name):
         return False
     return True
 
+
 def computer_guess(board):
     """
     This function generates a random guess for the computer player.
-    It randomly selects a row and column on the board that has not been guessed before.
-    If the selected cell is empty or contains a ship, it returns the row and column.
+    It randomly selects a row and column on the board that has not been
+    guessed before.
+    If the selected cell is empty or contains a ship, it returns the row
+    and column.
     """
     while True:
         row = random.randint(0, 8)
@@ -108,16 +122,19 @@ def computer_guess(board):
         if board[row][col] == ' ' or board[row][col] == 'O':
             return row, col
 
+
 def is_ship_sunk(ship_positions, board, ship):
     """
     This function checks if a specific ship has been sunk.
-    It returns True if all parts of the ship have been hit ('X'), otherwise False.
+    It returns True if all parts of the ship have been hit ('X'),
+    otherwise False.
     """
     for position in ship_positions[ship]:
         row, col = position
         if board[row][col] != 'X':
             return False
     return True
+
 
 def play_game():
     """
@@ -128,7 +145,8 @@ def play_game():
     The player can enter 'exit' to quit the game at any time.
     The game continues until all the ships of either
     the player or the computer have been sunk.
-    It also keeps track of the number of guesses made by the player and the computer.
+    It also keeps track of the number of guesses made by the player
+    and the computer.
     """
     # Game instructions
     print("Welcome to Battleship!")
@@ -256,8 +274,8 @@ def play_game():
 
     return name
 
-# Main function to start the game
 
+# Main function to start the game
 player_name = play_game()
 time.sleep(1)
 print(f'Thanks for playing! Goodbye, {player_name}!')
