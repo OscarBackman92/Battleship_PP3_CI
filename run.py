@@ -1,6 +1,8 @@
 import time
 import random
 import re
+import emoji
+from colorama import init, Fore, Back, Style
 
 # Define ships globally
 ships = {
@@ -149,7 +151,7 @@ def play_game():
     and the computer.
     """
     # Game instructions
-    print("Welcome to Battleship!")
+    print("Welcome to Battleship!🚢")
     print("""
     Instructions:
     1. Enter your name when prompted.
@@ -177,7 +179,7 @@ def play_game():
     player_board = create_board()
     computer_board = create_board()
 
-    print('Placing ships on the board...')
+    print('Placing ships on the board... 🌊 🌊 🌊 🌊 🌊')
     time.sleep(2)
 
     player_ship_positions = place_ships(player_board)
@@ -202,14 +204,14 @@ def play_game():
 
         # Check if guess is valid
         if not validate_input(guess, computer_board):
-            print('Invalid input. Please enter a valid guess.')
+            print('Invalid input. Please enter a valid guess. 💀')
             continue
 
         # Check if guess has already been made
         col = guess[0].upper()
         row = int(guess[1:]) - 1
         if (row, ord(col) - ord('A')) in guessed_coords:
-            print('You have already guessed that coordinate. Try again.')
+            print('You have already guessed that coordinate. Try again. ⛔')
             continue
 
         # Add current guess to guessed coordinates
@@ -219,8 +221,7 @@ def play_game():
         # Now guessing on computer's board
         if computer_board[row][ord(col) - ord('A')] == 'O':
             computer_board[row][ord(col) - ord('A')] = 'X'
-            print('Hit!')
-
+            print('Hit! 🎯')
             # Add delay for dramatic effect
             time.sleep(1)
 
@@ -228,7 +229,7 @@ def play_game():
             for ship in ships:
                 if is_ship_sunk(computer_ship_positions, computer_board, ship):
                     if not computer_ships_sunk[ship]:
-                        print(f'You sunk the computer\'s {ship}!')
+                        print(f'You sunk the computer\'s {ship}! 🚩')
                         computer_ships_sunk[ship] = True
 
         else:
@@ -237,7 +238,7 @@ def play_game():
 
         guesses += 1
         if all(computer_ships_sunk.values()):
-            print('Victory! You sunk all the computer\'s ships. You win!')
+            print('Victory! You sunk all the computer\'s ships. You win! 🏆')
             print(f'Total Guesses: {guesses}')
             break
 
@@ -278,4 +279,4 @@ def play_game():
 # Main function to start the game
 player_name = play_game()
 time.sleep(1)
-print(f'Thanks for playing! Goodbye, {player_name}!')
+print(f'Thanks for playing! Goodbye, {player_name}! 👋')
