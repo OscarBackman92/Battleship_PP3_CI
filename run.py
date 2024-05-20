@@ -150,10 +150,8 @@ def play_game():
     It also keeps track of the number of guesses made by the player
     and the computer.
     """
-    # Game instructions
 
-
-    time.sleep(2)
+    time.sleep(1)
 
     # Validate name input
     name = input('Enter your name: ')
@@ -162,14 +160,16 @@ def play_game():
         name = input('Enter your name: ')
         time.sleep(1)
 
+    time.sleep(1)
     input('Press Enter to start the game...')
+    
 
     global ships
     player_board = create_board()
     computer_board = create_board()
 
     print('Placing ships on the board... 🌊 🌊 🌊 🌊 🌊')
-    time.sleep(2)
+    time.sleep(1)
 
     player_ship_positions = place_ships(player_board)
     computer_ship_positions = place_ships(computer_board)
@@ -220,16 +220,19 @@ def play_game():
                     if not computer_ships_sunk[ship]:
                         print(f'{name} sunk the computer\'s {ship}! 🚩')
                         computer_ships_sunk[ship] = True
+                        time.sleep(1)
 
         else:
             computer_board[row][ord(col) - ord('A')] = 'M'
             print(f'{name} Missed!')
+            time.sleep(1)
 
         guesses += 1
         if all(computer_ships_sunk.values()):
             print('Victory! You sunk all the enemy\'s ships. You win! 🏆')
             print(f'Total Guesses: {guesses}')
             break
+        time.sleep(1)
 
         # Now computer guesses on player's board
         computer_row, computer_col = computer_guess(player_board)
@@ -248,16 +251,21 @@ def play_game():
                     if not player_ships_sunk[ship]:
                         print(f'The computer sunk your {ship}!')
                         player_ships_sunk[ship] = True
+                        time.sleep(1)
 
         else:
             player_board[computer_row][computer_col] = 'M'
             print('Enemy missed your ship!')
+            time.sleep(1)
             print(f"Enemy guessed: {chr(computer_col + ord('A'))}{computer_row + 1}")
+            time.sleep(1)
 
         guesses += 1
         if all(player_ships_sunk.values()):
             print('Defeat! The computer sunk all your ships. You lose.')
+            time.sleep(1)
             print(f'Total Guesses: {guesses}')
+            time.sleep(1)
             break
 
         time.sleep(1)
@@ -266,7 +274,9 @@ def play_game():
 
 
 # Main function to start the game
+# Game instructions and setup
 print("Welcome to Battleship!🚢")
+time.sleep(1)
 print("""
     Instructions:
 1. Enter your name when prompted.
@@ -277,7 +287,8 @@ print("""
 6. The computer will also guess the location of your ships.
 7. The first to sink all the opponent's ships wins the game.
 8. You can exit the game at any time by typing 'exit' during your turn.
-9. Have fun playing Battleship! 🎮""")
+9. Have fun playing Battleship! 🎮
+      """)
 player_name = play_game()
 time.sleep(1)
 print(f'Thanks for playing! Goodbye, {player_name}! 👋')
