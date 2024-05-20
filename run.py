@@ -2,7 +2,9 @@ import random
 import re
 import time
 import emoji
-import colorama
+from colorama import Fore, Back, Style
+print(Fore.RED + "")
+print(Style.RESET_ALL)
 emoji.emojize("")
 
 
