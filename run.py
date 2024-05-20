@@ -195,6 +195,7 @@ def play_game():
         # Check if guess is valid
         if not validate_input(guess, computer_board):
             print('Invalid input. Please enter a valid guess. 💀')
+            time.sleep(1)
             continue
 
         # Check if guess has already been made
@@ -202,6 +203,7 @@ def play_game():
         row = int(guess[1:]) - 1
         if (row, ord(col) - ord('A')) in guessed_coords:
             print('You have already guessed that coordinate. Try again. ⛔')
+            time.sleep(1)
             continue
 
         # Add current guess to guessed coordinates
