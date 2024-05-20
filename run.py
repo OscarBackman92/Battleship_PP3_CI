@@ -225,7 +225,7 @@ def play_game():
 
         else:
             computer_board[row][ord(col) - ord('A')] = 'M'
-            print(f'{name} Missed!')
+            print(f'{name}Enemy ship not found!🌊 🚫')
             time.sleep(1)
 
         guesses += 1
