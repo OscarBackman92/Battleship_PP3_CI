@@ -13,7 +13,6 @@ ships = {
     'Destroyer': 2
 }
 
-
 def create_board():
     """
     This function creates a 9x9 empty board with all cells initialized to ' '.
@@ -23,7 +22,6 @@ def create_board():
         row = [' '] * 9
         board.append(row)
     return board
-
 
 def print_board(board, hide_ships=False):
     """
@@ -42,7 +40,6 @@ def print_board(board, hide_ships=False):
                 row.append(board[i][j])
         print(f'{i+1} |{"|".join(row)}|')
         print('  -------------------')
-
 
 def place_ships(board):
     """
@@ -79,7 +76,6 @@ def place_ships(board):
                     placed = True
     return ship_positions
 
-
 def validate_input(guess, board):
     """
     This function validates the user's input for the guess.
@@ -95,7 +91,6 @@ def validate_input(guess, board):
         return False
     return True
 
-
 def validate_name(name):
     """
     This function validates the user's input for the name.
@@ -108,7 +103,6 @@ def validate_name(name):
     if re.match(r'^[0-9]', name):  # Check if name starts with a number
         return False
     return True
-
 
 def computer_guess(board):
     """
@@ -124,7 +118,6 @@ def computer_guess(board):
         if board[row][col] == ' ' or board[row][col] == 'O':
             return row, col
 
-
 def is_ship_sunk(ship_positions, board, ship):
     """
     This function checks if a specific ship has been sunk.
@@ -136,7 +129,6 @@ def is_ship_sunk(ship_positions, board, ship):
         if board[row][col] != 'X':
             return False
     return True
-
 
 def play_game():
     """
@@ -188,6 +180,12 @@ def play_game():
     computer_ships_sunk = {ship: False for ship in ships}
     guesses = 0
     guessed_coords = set()  # Set to store guessed coordinates
+
+    # Print initial boards
+    print('Initial Player Board:')
+    print_board(player_board)
+    print('Initial Computer Board:')
+    print_board(computer_board, hide_ships=True)
 
     while True:
         guess = input('Enter your guess (e.g. A1), or type "exit" to quit: ')
@@ -275,8 +273,6 @@ def play_game():
         time.sleep(1)
 
     return name
-
-
 
 # Main function to start the game
 player_name = play_game()
