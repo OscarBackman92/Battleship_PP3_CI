@@ -190,15 +190,11 @@ def play_game():
     guessed_coords = set()  # Set to store guessed coordinates
 
     while True:
-        print('Player Board:')
-        print_board(player_board)
-        print('Computer Board:')
-        print_board(computer_board, hide_ships=True)
         guess = input('Enter your guess (e.g. A1), or type "exit" to quit: ')
 
         # Check if the player wants to exit
         if guess.lower() == 'exit':
-            print('Quitting the game... Bye Traitor! 👋')
+            print('Quitting the game...')
             return name
         time.sleep(1)
 
@@ -217,6 +213,12 @@ def play_game():
         # Add current guess to guessed coordinates
         guessed_coords.add((row, ord(col) - ord('A')))
 
+        # Print boards after a valid guess
+        print('Player Board:')
+        print_board(player_board)
+        print('Computer Board:')
+        print_board(computer_board, hide_ships=True)
+
         # Process the guess
         # Now guessing on computer's board
         if computer_board[row][ord(col) - ord('A')] == 'O':
@@ -231,7 +233,6 @@ def play_game():
                     if not computer_ships_sunk[ship]:
                         print(f'{name} sunk the computer\'s {ship}! 🚩')
                         computer_ships_sunk[ship] = True
-
         else:
             computer_board[row][ord(col) - ord('A')] = 'M'
             print(f'{name} Missed!')
@@ -266,7 +267,7 @@ def play_game():
 
         guesses += 1
         if all(player_ships_sunk.values()):
-            print('Victory! You sunk all the computer\'s ships. You win!')
+            print('Defeat! The computer sunk all your ships. You lose.')
             print(f'Total Guesses: {guesses}')
             break
 
@@ -274,6 +275,7 @@ def play_game():
         time.sleep(1)
 
     return name
+
 
 
 # Main function to start the game
