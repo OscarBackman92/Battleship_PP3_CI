@@ -2,8 +2,9 @@ import random
 import re
 import time
 import emoji
+import colorama
 emoji.emojize("")
-from colorama import init, Fore, Back, Style
+
 
 # Define ships globally
 ships = {
@@ -163,7 +164,6 @@ def play_game():
 
     time.sleep(1)
     input('Press Enter to start the game...')
-    
 
     global ships
     player_board = create_board()
@@ -258,7 +258,7 @@ def play_game():
             player_board[computer_row][computer_col] = 'M'
             print('Enemy missed your ship!')
             time.sleep(1)
-            print(f"Enemy guessed: {chr(computer_col + ord('A'))}{computer_row + 1}")
+            print(f"Enemy: {chr(computer_col + ord('A'))}{computer_row + 1}")
             time.sleep(1)
 
         guesses += 1
