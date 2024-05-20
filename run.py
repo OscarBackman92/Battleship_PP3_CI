@@ -188,7 +188,7 @@ def play_game():
 
         # Check if the player wants to exit
         if guess.lower() == 'exit':
-            print('Quitting the game...')
+            print('Quitting the game...Traitor!😈')
             return name
         time.sleep(1)
 
