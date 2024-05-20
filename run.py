@@ -1,6 +1,6 @@
-import time
 import random
 import re
+import time
 import emoji
 from colorama import init, Fore, Back, Style
 
@@ -13,6 +13,7 @@ ships = {
     'Destroyer': 2
 }
 
+
 def create_board():
     """
     This function creates a 9x9 empty board with all cells initialized to ' '.
@@ -22,6 +23,7 @@ def create_board():
         row = [' '] * 9
         board.append(row)
     return board
+
 
 def print_board(board, hide_ships=False):
     """
@@ -40,6 +42,7 @@ def print_board(board, hide_ships=False):
                 row.append(board[i][j])
         print(f'{i+1} |{"|".join(row)}|')
         print('  -------------------')
+
 
 def place_ships(board):
     """
@@ -76,6 +79,7 @@ def place_ships(board):
                     placed = True
     return ship_positions
 
+
 def validate_input(guess, board):
     """
     This function validates the user's input for the guess.
@@ -91,6 +95,7 @@ def validate_input(guess, board):
         return False
     return True
 
+
 def validate_name(name):
     """
     This function validates the user's input for the name.
@@ -103,6 +108,7 @@ def validate_name(name):
     if re.match(r'^[0-9]', name):  # Check if name starts with a number
         return False
     return True
+
 
 def computer_guess(board):
     """
@@ -118,6 +124,7 @@ def computer_guess(board):
         if board[row][col] == ' ' or board[row][col] == 'O':
             return row, col
 
+
 def is_ship_sunk(ship_positions, board, ship):
     """
     This function checks if a specific ship has been sunk.
@@ -129,6 +136,7 @@ def is_ship_sunk(ship_positions, board, ship):
         if board[row][col] != 'X':
             return False
     return True
+
 
 def play_game():
     """
@@ -181,13 +189,11 @@ def play_game():
     guesses = 0
     guessed_coords = set()  # Set to store guessed coordinates
 
-    # Print initial boards
-    print('Initial Player Board:')
-    print_board(player_board)
-    print('Initial Computer Board:')
-    print_board(computer_board, hide_ships=True)
-
     while True:
+        print('Player Board:')
+        print_board(player_board)
+        print('Computer Board:')
+        print_board(computer_board, hide_ships=True)
         guess = input('Enter your guess (e.g. A1), or type "exit" to quit: ')
 
         # Check if the player wants to exit
@@ -211,17 +217,11 @@ def play_game():
         # Add current guess to guessed coordinates
         guessed_coords.add((row, ord(col) - ord('A')))
 
-        # Print boards after a valid guess
-        print('Player Board:')
-        print_board(player_board)
-        print('Computer Board:')
-        print_board(computer_board, hide_ships=True)
-
         # Process the guess
         # Now guessing on computer's board
         if computer_board[row][ord(col) - ord('A')] == 'O':
             computer_board[row][ord(col) - ord('A')] = 'X'
-            print(f'{name} Hit an enemy ship! 🎯')
+            print(f'{player_name} Hit an enemy ship! 🎯')
             # Add delay for dramatic effect
             time.sleep(1)
 
@@ -229,11 +229,12 @@ def play_game():
             for ship in ships:
                 if is_ship_sunk(computer_ship_positions, computer_board, ship):
                     if not computer_ships_sunk[ship]:
-                        print(f'{name} sunk the computer\'s {ship}! 🚩')
+                        print(f'{player_name} sunk the computer\'s {ship}! 🚩')
                         computer_ships_sunk[ship] = True
+
         else:
             computer_board[row][ord(col) - ord('A')] = 'M'
-            print(f'{name} Missed!')
+            print(f'{player_name} Missed!')
 
         guesses += 1
         if all(computer_ships_sunk.values()):
@@ -265,7 +266,7 @@ def play_game():
 
         guesses += 1
         if all(player_ships_sunk.values()):
-            print('Defeat! The computer sunk all your ships. You lose.')
+            print('Victory! You sunk all the computer\'s ships. You win!')
             print(f'Total Guesses: {guesses}')
             break
 
@@ -273,6 +274,7 @@ def play_game():
         time.sleep(1)
 
     return name
+
 
 # Main function to start the game
 player_name = play_game()
