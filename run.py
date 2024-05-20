@@ -177,7 +177,8 @@ def play_game():
     player_ships_sunk = {ship: False for ship in ships}
     computer_ships_sunk = {ship: False for ship in ships}
     guesses = 0
-    guessed_coords = set()  # Set to store guessed coordinates
+    # Set to store guessed coordinates
+    guessed_coords = set()
 
     while True:
         print('Player Board:')
@@ -185,6 +186,7 @@ def play_game():
         print('Computer Board:')
         print_board(computer_board, hide_ships=True)
         guess = input('Enter your guess (e.g. A1), or type "exit" to quit: ')
+        time.sleep(1)
 
         # Check if the player wants to exit
         if guess.lower() == 'exit':
@@ -195,16 +197,16 @@ def play_game():
         # Check if guess is valid
         if not validate_input(guess, computer_board):
             print('Invalid input. Please enter a valid guess. 💀')
-            time.sleep(1)
             continue
+        time.sleep(1)
 
         # Check if guess has already been made
         col = guess[0].upper()
         row = int(guess[1:]) - 1
         if (row, ord(col) - ord('A')) in guessed_coords:
             print('You have already guessed that coordinate. Try again. ⛔')
-            time.sleep(1)
             continue
+        time.sleep(1)
 
         # Add current guess to guessed coordinates
         guessed_coords.add((row, ord(col) - ord('A')))
