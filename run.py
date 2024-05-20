@@ -198,7 +198,7 @@ def play_game():
 
         # Check if the player wants to exit
         if guess.lower() == 'exit':
-            print('Quitting the game...')
+            print('Quitting the game... Bye Traitor! 👋')
             return name
         time.sleep(1)
 
@@ -221,7 +221,7 @@ def play_game():
         # Now guessing on computer's board
         if computer_board[row][ord(col) - ord('A')] == 'O':
             computer_board[row][ord(col) - ord('A')] = 'X'
-            print('Hit! 🎯')
+            print(f'{name} Hit an enemy ship! 🎯')
             # Add delay for dramatic effect
             time.sleep(1)
 
@@ -229,16 +229,16 @@ def play_game():
             for ship in ships:
                 if is_ship_sunk(computer_ship_positions, computer_board, ship):
                     if not computer_ships_sunk[ship]:
-                        print(f'You sunk the computer\'s {ship}! 🚩')
+                        print(f'{name} sunk the computer\'s {ship}! 🚩')
                         computer_ships_sunk[ship] = True
 
         else:
             computer_board[row][ord(col) - ord('A')] = 'M'
-            print('Miss!')
+            print(f'{name} Missed!')
 
         guesses += 1
         if all(computer_ships_sunk.values()):
-            print('Victory! You sunk all the computer\'s ships. You win! 🏆')
+            print('Victory! You sunk all the enemy\'s ships. You win! 🏆')
             print(f'Total Guesses: {guesses}')
             break
 
@@ -248,7 +248,7 @@ def play_game():
         # Now guessing on player's board
         if player_board[computer_row][computer_col] == 'O':
             player_board[computer_row][computer_col] = 'X'
-            print('Computer hit your ship!')
+            print('Enemy hit your ship!')
 
             # Add delay for dramatic effect
             time.sleep(1)
@@ -270,7 +270,7 @@ def play_game():
             print(f'Total Guesses: {guesses}')
             break
 
-        print('Computer missed your ship!')
+        print('Enemy missed your ship!')
         time.sleep(1)
 
     return name
