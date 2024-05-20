@@ -2,6 +2,7 @@ import random
 import re
 import time
 import emoji
+emoji.emojize("")
 from colorama import init, Fore, Back, Style
 
 # Define ships globally
