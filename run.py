@@ -276,6 +276,7 @@ def play_game():
 
 # Main function to start the game
 # Game instructions and setup
+print("")
 print("Welcome to Battleship!🚢")
 time.sleep(1)
 print("""
