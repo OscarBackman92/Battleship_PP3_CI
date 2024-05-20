@@ -241,7 +241,7 @@ def play_game():
         # Now guessing on player's board
         if player_board[computer_row][computer_col] == 'O':
             player_board[computer_row][computer_col] = 'X'
-            print('Enemy hit your ship!')
+            print('Enemy hit your ship! 💥')
 
             # Add delay for dramatic effect
             time.sleep(1)
@@ -250,20 +250,20 @@ def play_game():
             for ship in ships:
                 if is_ship_sunk(player_ship_positions, player_board, ship):
                     if not player_ships_sunk[ship]:
-                        print(f'The computer sunk your {ship}!')
+                        print(f'The computer sunk your {ship}! 💣')
                         player_ships_sunk[ship] = True
                         time.sleep(1)
 
         else:
             player_board[computer_row][computer_col] = 'M'
-            print('Enemy missed your ship!')
+            print('Enemy missed your ship! 🚫')
             time.sleep(1)
             print(f"Enemy: {chr(computer_col + ord('A'))}{computer_row + 1}")
             time.sleep(1)
 
         guesses += 1
         if all(player_ships_sunk.values()):
-            print('Defeat! The computer sunk all your ships. You lose.')
+            print('Defeat! The computer sunk all your ships. You lose. 😭')
             time.sleep(1)
             print(f'Total Guesses: {guesses}')
             time.sleep(1)
