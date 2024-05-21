@@ -2,30 +2,62 @@
 
 ## Introduction
 
-Welcome to Battleship! This is a classic strategy game where you and the computer compete to sink each other's ships. In this version of Battleship, you'll have to outwit your opponent by guessing the positions of their ships while protecting your own.
+Welcome to Battleship! This classic naval combat game pits you against the computer in a battle to sink each other's ships. In Battleship, strategy and deduction are key to victory. Are you ready to command your fleet and outmaneuver your opponent?
+
+## Features
+
+- **Dynamic Board**: The game generates a 9x9 board where you and the computer will place your ships and make guesses.
+- **Randomized Ship Placement**: Ships are placed randomly on the board, adding an element of unpredictability to each game.
+- **Hit or Miss Feedback**: After each guess, the game provides immediate feedback on whether your shot was a hit or a miss.
+- **Ship Sinking**: Sink your opponent's ships by landing hits on each part of the ship.
+- **Exit Option**: You can exit the game at any time by typing 'exit' during your turn.
 
 ## How to Play
 
-1. **Enter Your Name**: When prompted, enter your name to begin the game.
-2. **Board Setup**: The game will create a 9x9 board for you and the computer. Ships will be placed randomly on the board.
-3. **Make Guesses**: Guess the position of the enemy ships by entering a coordinate in the format `A1`, where `A` is the column letter and `1` is the row number.
-4. **Hit or Miss**: After each guess, the computer will inform you if your guess was a hit or a miss.
-5. **Computer's Turn**: The computer will also guess the location of your ships. Pay attention to its guesses!
-6. **Sink Ships**: The first player to sink all of the opponent's ships wins the game.
-7. **Exit**: You can exit the game at any time by typing 'exit' during your turn.
+![game_start](docs/screenshots/game_start.png)
 
-## Game Controls
+1. **Enter Your Name**:
+Start by entering your name to personalize the gaming experience.
 
-- **Enter your guess**: Input a coordinate to make a guess. For example, `A1`.
+![ship_placement](docs/screenshots/game_started.png)
 
+2. **Ship Placement**:
+Ships are automatically placed on the board for both you and the computer.
+
+
+3. **Make Guesses**: Guess the positions of your opponent's ships by entering coordinates in the format `A1`, `B2`, etc.
+4. **Hit or Miss**: The game will inform you if your guess hits or misses an enemy ship.
+5. **Computer's Turn**: After your turn, the computer will take its shot at your fleet.
+6. **Sink Ships**: Sink all of your opponent's ships before they sink yours to win the game.
+
+## Controls
+
+- **Enter your guess**: Input a coordinate (e.g., `A1`, `B2`) during your turn to make a guess.
 - **Exit the game**: Type 'exit' during your turn to quit the game.
 
-## Gameplay Tips
+## Strategy Tips
 
-- Keep track of your previous guesses to avoid guessing the same position again.
-- Strategically target areas where you suspect enemy ships might be hiding.
-- Protect your ships by spreading them out across the board.
+- **Strategize Ship Placement**: Disperse your ships strategically across the board to make them harder to find.
+- **Use Process of Elimination**: Keep track of your opponent's misses to narrow down possible ship locations.
+- **Protect Your Ships**: Defend your ships by avoiding patterns and spreading them out intelligently.
+
+## Requirements
+
+- ![python](docs/screenshots/python_version.png)
+
+## How to Run
+
+1. Clone this repository to your local machine.
+2. Navigate to the directory containing the `run.py` file.
+3. Run the command `python run.py` to start the game.
+
 
 ## Have Fun!
 
-Now that you know the rules, it's time to test your skills in the ultimate game of naval warfare. Enjoy playing Battleship! 🚢🎮
+Now that you know the rules and strategies, it's time to jump into the action-packed world of Battleship! Command your fleet, make strategic decisions, and emerge victorious. Good luck, Admiral!
+
+### Reqirements
+
+    pip install emoji
+
+
