@@ -228,7 +228,7 @@ def play_game():
 
         else:
             computer_board[row][ord(col) - ord('A')] = 'M'
-            print(f'{name}Missed enemy ship🌊 🚫')
+            print(f'{name} Missed enemy ship🌊 🚫')
             time.sleep(1)
 
         guesses += 1
@@ -261,7 +261,8 @@ def play_game():
             player_board[computer_row][computer_col] = 'M'
             print('Enemy missed your ship! 🚫')
             time.sleep(1)
-            print(f"Enemy: {chr(computer_col + ord('A'))}{computer_row + 1}")
+            print("Enemy guessed: "
+                  f"{chr(computer_col + ord('A'))}{computer_row + 1}")
             time.sleep(1)
 
         guesses += 1
@@ -276,9 +277,14 @@ def play_game():
 
     return name
 
+
 def main():
-    # Main function to start the game
-    # Game instructions and setup
+    """
+    This function is the entry point of the program.
+    It displays the welcome message and instructions for the game.
+    It then calls the play_game function to start the game.
+    After the game is over, it displays a goodbye message.
+    """
     print("Welcome to Battleship!🚢")
     time.sleep(1)
     print("""
@@ -297,7 +303,9 @@ def main():
     time.sleep(1)
     print(f'Thanks for playing! Goodbye, {player_name}! 👋')
 
+
 def __init__():
     main()
+
 
 main()
