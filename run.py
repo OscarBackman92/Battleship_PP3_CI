@@ -271,12 +271,10 @@ def play_game():
             print(f'Total Guesses: {guesses}')
             time.sleep(1)
             break
-        
         print('Player Board:')
         print_board(player_board)
         print('Computer Board:')
         print_board(computer_board, hide_ships=True)
-    
 
         time.sleep(1)
 
