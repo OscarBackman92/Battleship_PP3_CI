@@ -179,11 +179,10 @@ def play_game():
     # Set to store guessed coordinates
     guessed_coords = set()
 
+    print('Player Board:')
+    print_board(player_board)
+
     while True:
-        print('Player Board:')
-        print_board(player_board)
-        print('Computer Board:')
-        print_board(computer_board, hide_ships=True)
         guess = input('Enter your guess (e.g. A1), or type "exit" to quit: ')
         time.sleep(1)
 
@@ -209,12 +208,6 @@ def play_game():
 
         # Add current guess to guessed coordinates
         guessed_coords.add((row, ord(col) - ord('A')))
-
-        # Print the board after valid input
-        print('Player Board:')
-        print_board(player_board)
-        print('Computer Board:')
-        print_board(computer_board, hide_ships=True)
 
         # Process the guess
         # Now guessing on computer's board
@@ -278,11 +271,16 @@ def play_game():
             print(f'Total Guesses: {guesses}')
             time.sleep(1)
             break
+        
+        print('Player Board:')
+        print_board(player_board)
+        print('Computer Board:')
+        print_board(computer_board, hide_ships=True)
+    
 
         time.sleep(1)
 
     return name
-
 
 
 def main():
