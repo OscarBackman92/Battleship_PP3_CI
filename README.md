@@ -24,8 +24,8 @@ Start by entering your name to personalize the gaming experience.
 2. **Ship Placement**:
 Ships are automatically placed on the board for both you and the computer.
 
-
-3. **Make Guesses**: Guess the positions of your opponent's ships by entering coordinates in the format `A1`, `B2`, etc.
+3. **Make Guesses**:
+Guess the positions of your opponent's ships by entering coordinates in the format `A1`, `B2`, etc.
 4. **Hit or Miss**: The game will inform you if your guess hits or misses an enemy ship.
 5. **Computer's Turn**: After your turn, the computer will take its shot at your fleet.
 6. **Sink Ships**: Sink all of your opponent's ships before they sink yours to win the game.
@@ -45,6 +45,8 @@ Ships are automatically placed on the board for both you and the computer.
 
 - ![python](docs/screenshots/python_version.png)
 
+- pip install emoji
+
 ## How to Run
 
 1. Clone this repository to your local machine.
@@ -55,9 +57,3 @@ Ships are automatically placed on the board for both you and the computer.
 ## Have Fun!
 
 Now that you know the rules and strategies, it's time to jump into the action-packed world of Battleship! Command your fleet, make strategic decisions, and emerge victorious. Good luck, Admiral!
-
-### Reqirements
-
-    pip install emoji
-
-
