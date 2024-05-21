@@ -222,13 +222,13 @@ def play_game():
             for ship in ships:
                 if is_ship_sunk(computer_ship_positions, computer_board, ship):
                     if not computer_ships_sunk[ship]:
-                        print(f'{name} sunk the computer\'s {ship}! 🚩')
+                        print(f'{name} sunk the enemy\'s {ship}! 🚩')
                         computer_ships_sunk[ship] = True
                         time.sleep(1)
 
         else:
             computer_board[row][ord(col) - ord('A')] = 'M'
-            print(f'{name}Enemy ship not found!🌊 🚫')
+            print(f'{name}Missed enemy ship🌊 🚫')
             time.sleep(1)
 
         guesses += 1
@@ -279,7 +279,6 @@ def play_game():
 def main():
     # Main function to start the game
     # Game instructions and setup
-    print("")
     print("Welcome to Battleship!🚢")
     time.sleep(1)
     print("""
