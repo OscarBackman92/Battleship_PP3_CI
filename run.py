@@ -210,6 +210,12 @@ def play_game():
         # Add current guess to guessed coordinates
         guessed_coords.add((row, ord(col) - ord('A')))
 
+        # Print the board after valid input
+        print('Player Board:')
+        print_board(player_board)
+        print('Computer Board:')
+        print_board(computer_board, hide_ships=True)
+
         # Process the guess
         # Now guessing on computer's board
         if computer_board[row][ord(col) - ord('A')] == 'O':
@@ -276,6 +282,7 @@ def play_game():
         time.sleep(1)
 
     return name
+
 
 
 def main():

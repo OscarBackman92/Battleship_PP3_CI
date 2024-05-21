@@ -11,12 +11,16 @@ Brief description of the project.
 
 ## Installation
 
+To deploy the project, follow these steps:
+
 1. Clone the repository.
 2. Install the required dependencies using the following command:
 
     ```shell
     pip install -r requirements.txt
     ```
+
+3. Deploy the project using your preferred deployment method. For example, you can use a cloud platform like Heroku or AWS Elastic Beanstalk, or you can deploy it on your own server.
 
 ## Usage
 
