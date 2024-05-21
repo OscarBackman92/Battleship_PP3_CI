@@ -1,31 +1,36 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Project Name
 
-Welcome USER_NAME,
+Brief description of the project.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+## Table of Contents
 
-## Reminders
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+## Installation
 
-## Creating the Heroku app
+1. Clone the repository.
+2. Install the required dependencies using the following command:
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+    ```shell
+    pip install -r requirements.txt
+    ```
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## Usage
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+1. Navigate to the project directory.
+2. Run the script using the following command:
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+    ```shell
+    python run.py
+    ```
 
-Connect your GitHub repository and deploy as normal.
+## Contributing
 
-## Constraints
+Contributions are welcome! If you find any issues or have suggestions, please open an issue or submit a pull request.
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+## License
 
------
-Happy coding!
+[License Name](link-to-license)
