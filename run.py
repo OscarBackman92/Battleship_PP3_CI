@@ -2,9 +2,6 @@ import random
 import re
 import time
 import emoji
-from colorama import Fore, Back, Style
-print(Fore.RED + "")
-print(Style.RESET_ALL)
 emoji.emojize("")
 
 
@@ -279,24 +276,29 @@ def play_game():
 
     return name
 
+def main():
+    # Main function to start the game
+    # Game instructions and setup
+    print("")
+    print("Welcome to Battleship!🚢")
+    time.sleep(1)
+    print("""
+        Instructions:
+    1. Enter your name when prompted.
+    2. The game will create a 9x9 board for you and the computer.
+    3. Ships will be placed randomly on the board.
+    4. Guess the position of the enemy ships by entering a coordinate (e.g. A1)
+    5. The computer will tell you if your guess was a hit or a miss.
+    6. The computer will also guess the location of your ships.
+    7. The first to sink all the opponent's ships wins the game.
+    8. You can exit the game at any time by typing 'exit' during your turn.
+    9. Have fun playing Battleship! 🎮
+        """)
+    player_name = play_game()
+    time.sleep(1)
+    print(f'Thanks for playing! Goodbye, {player_name}! 👋')
 
-# Main function to start the game
-# Game instructions and setup
-print("")
-print("Welcome to Battleship!🚢")
-time.sleep(1)
-print("""
-    Instructions:
-1. Enter your name when prompted.
-2. The game will create a 9x9 board for you and the computer.
-3. Ships will be placed randomly on the board.
-4. Guess the position of the enemy ships by entering a coordinate (e.g. A1)
-5. The computer will tell you if your guess was a hit or a miss.
-6. The computer will also guess the location of your ships.
-7. The first to sink all the opponent's ships wins the game.
-8. You can exit the game at any time by typing 'exit' during your turn.
-9. Have fun playing Battleship! 🎮
-      """)
-player_name = play_game()
-time.sleep(1)
-print(f'Thanks for playing! Goodbye, {player_name}! 👋')
+def __init__():
+    main()
+
+main()
