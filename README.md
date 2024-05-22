@@ -7,9 +7,13 @@ This Battleship game is a console-based implementation of the classic board game
 1. [How to Play](#how-to-play)
 2. [How it Works](#how-it-works)
 3. [Why This Implementation](#why-this-implementation)
-4. [Deployment](#deployment)
-5. [Testing](#testing)
-6. [Future Improvements](#future-improvements)
+4. [Future Improvements](#future-improvements)
+5. [Flow Chart](#flow)
+6. [Technologies](#technologies)
+7. [Testing](#testing)
+8. [Deployment](#deployment)
+9. [Credits](#credits)
+10. [Thank you!](#thank-you)
 
 ## How to Play
 
