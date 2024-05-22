@@ -52,16 +52,6 @@ This Battleship game is a console-based implementation of the classic board game
 - **Turn-based Mechanics**: Mimics the classic Battleship game, providing a familiar and engaging experience.
 - **Input Validation**: Ensures user inputs are correct, enhancing the robustness of the game.
 
-## Deployment
-
-To deploy the game, follow these steps:
-
-1. **Clone the Repository**: Clone the repository to your local machine.
-
-    ```sh
-    git clone https://github.com/yourusername/battleship-game.git
-    cd battleship-game
-    ```
 
 2. **Install Python**: Ensure you have Python installed on your system. The game is compatible with Python 3.x.
 
@@ -94,16 +84,78 @@ To deploy the game, follow these steps:
 
 ## Testing
 
-To test the game, you can follow these steps:
+Below are the execution tests that are done to this app.
 
-1. **Manual Testing**:
+### Functional Testing
 
-    - Play the game several times to ensure all game mechanics are working correctly.
-    - Test different inputs, including valid and invalid guesses, and ensure the game handles them appropriately.
+| Description                 | Steps                                    | Expected                                                                                                                   | Actual                                                                                                                     | Pass |
+| --------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ---- |
+| Open app                    | Run the program                          | Welcome message, instructions and "Enter your name"                                                                        | Welcome message instructions and "Enter your Name"                                                                         | Pass |
+| Enter your name             | Type in your name                        | See "Press enter to start the game"                                                                                        | Sees "Press enter to start the game                                                                                        | Pass |
+| Press enter                 | Press Enter                              | Outputs "placing ships on the board...Wave emojis x5" and loades player board with 5 different ships placed at random      | Outputs "placing ships on the board...Wave emojis x5" and loades player board with 5 different ships placed at random      | Pass |
+| Missed guess                | Enter an e.g A1 Guess                    | Outputs Player missed enemy ship and marks the computer board with an M for miss on input location                         | Outputs Player missed enemy ship and marks the computer board with an M for miss on input location                         | Pass |
+| Guess hit                   | Enter an e.g A1 Guess                    | Outputs Player hit an enemy ship, Marks computer board with an X on input location                                         | Outputs Player hit an enemy ship, Marks computer board with an X on input location                                         | Pass |
+| Invalid guess               | Enter an invalid guess e.g m5            | Outputs "invalid input. Please enter a valid guess"                                                                        | Outputs "invalid input. Please enter a valid guess"                                                                        | Pass |
+| Already made guess          | Enter an already made guess e.g A1 twice | Outputs you have already guess the coordinate. try again                                                                   | Outputs you have already guess the coordinate. try again                                                                   | Pass |
+| Computer guess miss         | Computer missed                          | Outputs the coordinate for computer guess "Enemy missed you ship" Enemy guess e.g f7 Marks player board with an M for miss | Outputs the coordinate for computer guess "Enemy missed you ship" Enemy guess e.g f7 Marks player board with an M for miss | Pass |
+| Computer guess hit          | Computer hit                             | Outputs the coordinate for computer guess "Enemy hit your ship" Enemy guess e.g f7 Marks player board with an X for hit    | Outputs the coordinate for computer guess "Enemy hit your ship" Enemy guess e.g f7 Marks player board with an X for hit    | Pass |
+| Player Sunk destroyer ship  | Sink a destryoer                         | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Destroyer                                                | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Destroyer                                                | Pass |
+| Player Sunk Crusier ship    | Sink a Crusier                           | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Crusier                                                  | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Crusier                                                  | Pass |
+| Player Sunk Submarine       | Sink a Submarine                         | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Submarine                                                | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Submarine                                                | Pass |
+| Player Sunk Battleship      | Sink a Battleship                        | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Battleship                                               | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Battleship                                               | Pass |
+| player Sunk Carrier         | Sink a Carrier                           | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Carrier                                                  | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Carrier                                                  | Pass |
+| Compter Sunk destroyer ship | Computer sunk a Destroyer                | Outputs Enemy hit your ship, Outputs The computer sunk your Destroyer                                                      | Outputs Enemy hit your ship, Outputs Enemy sunk your Destroyer                                                             | Pass |
+| Computer Sunk Crusier ship  | Computer sunk a Crusier                  | Outputs Enemy hit your ship, Outputs The computer sunk your Crusier                                                        | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Crusier                                                  | Pass |
+| Computer Sunk Submarine     | Computer sunk a Submarine                | Outputs Enemy hit your ship, Outputs The computer sunk your Submarine                                                      | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Submarine                                                | Pass |
+| ComputerSunk Battleship     | Computer sunk a Battleship               | Outputs Enemy hit your ship, Outputs The computer sunk your Battleship                                                     | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Battleship                                               | Pass |
+| Computer Sunk Carrier       | Computer sunk a Carrier                  | Outputs Enemy hit your ship, Outputs The computer sunk your Carrier                                                        | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Carrier                                                  | Pass |
+| All player ships sunk       | Computer sinks all the players ships     | Outputs Defeat! The enemy sunk all your ships. You lose                                                                    | Outputs Defeat! The enemy sunk all your ships. You lose                                                                    | Pass |
+| All computer ships sunk     | The player sinks all enemy ship          | Outputs Victory! You sunk all the enemy 's ships. You win!                                                                 | Outputs Victory! You sunk all the enemy 's ships. You win!                                                                 | Pass |
+| Exit game on turn           | type exit on your turn                   | Outputs Quitting the game...Traitor Thanks you playing! Goodbye Player                                                     | Outputs Quitting the game...Traitor Thanks you playing! Goodbye Player                                                     | Pass |
 
-2. **Unit Testing**:
-    - Create unit tests for individual functions such as `validate_input`, `validate_name`, `place_ships`, and `is_ship_sunk`.
-    - Use a testing framework like `unittest` or `pytest` to automate these tests.
+
+### PEP8 Validator
+
+![pep8](docs/testing/pep8_validation_240522.png)
+
+All python code was tested in (https://pep8ci.herokuapp.com/#) with no errors
+
+## Deployment
+
+### Version Control
+The site was created using the Visual Studio Code editor and pushed to github to the remote repository Battleship_PP3_CI
+
+The following git commands were used throughout development to push code to the remote repo:
+
+
+```git commit -m "commit message"``` - This command was used to commit changes to the local repository queue ready for the final step.
+
+```git push``` - This command was used to push all committed code to the remote repository on github.
+
+### Heroku Deployment
+
+The below steps were followed to deploy this project to Heroku:
+
+- Go to Heroku and click "New" to create a new app.
+- Choose an app name and region region, click "Create app".
+- Navigate to Buildpacks and add buildpacks for Python and NodeJS (in that order).
+- Navigate to "Deploy". Set the deployment method to Github and enter repository name and connect.
+- Scroll down to Manual Deploy, select "main" branch and click "Deploy Branch".
+- The app will now be deployed to heroku
+
+### Clone Locally
+
+- Open IDE of choice and type the following into the terminal:
+     ```git clone https://github.com/OscarBackman92/Battleship_PP3_CI```
+- Project will now be cloned locally.
+
+## Credits
+
+- Google was used for inspiration and research on how to build a battleship game
+- Gareth McGirr - (https://github.com/Gareth-McGirr/motorcycle-rental-management) for readme tips.
+- Sweden Community slack group for tips and inspiration.
+- W3C tutorials were used as a reference for python functions throughout this project.
+- Last but definetly not the least Dasiy McGirr my mentor doe putting up with me.
 
 ## Thank you
 
