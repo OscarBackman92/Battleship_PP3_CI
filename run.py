@@ -252,7 +252,7 @@ def play_game():
             for ship in ships:
                 if is_ship_sunk(player_ship_positions, player_board, ship):
                     if not player_ships_sunk[ship]:
-                        print(f'The computer sunk your {ship}! 💣')
+                        print(f'The enemy sunk your {ship}! 💣')
                         player_ships_sunk[ship] = True
                         time.sleep(1)
 
@@ -266,7 +266,7 @@ def play_game():
 
         guesses += 1
         if all(player_ships_sunk.values()):
-            print('Defeat! The computer sunk all your ships. You lose. 😭')
+            print('Defeat! The enemy sunk all your ships. You lose. 😭')
             time.sleep(1)
             print(f'Total Guesses: {guesses}')
             time.sleep(1)

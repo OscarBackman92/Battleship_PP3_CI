@@ -16,7 +16,7 @@ This Battleship game is a console-based implementation of the classic board game
 1. **Start the Game**: Run the script to start the game.
 2. **Enter Your Name**: You will be prompted to enter your name.
 3. **Game Setup**: The game will create a 9x9 board for both you and the computer and place ships randomly.
-4. **Take Turns**: 
+4. **Take Turns**:
     - You will guess the location of the computer's ships by entering coordinates (e.g., A1).
     - The computer will also make guesses to find your ships.
 5. **Game End**: The game ends when either you or the computer has sunk all of the opponent's ships.
@@ -57,6 +57,7 @@ This Battleship game is a console-based implementation of the classic board game
 To deploy the game, follow these steps:
 
 1. **Clone the Repository**: Clone the repository to your local machine.
+
     ```sh
     git clone https://github.com/yourusername/battleship-game.git
     cd battleship-game
@@ -65,21 +66,10 @@ To deploy the game, follow these steps:
 2. **Install Python**: Ensure you have Python installed on your system. The game is compatible with Python 3.x.
 
 3. **Run the Game**: Execute the script to start the game.
+
     ```sh
     python battleship.py
     ```
-
-## Testing
-
-To test the game, you can follow these steps:
-
-1. **Manual Testing**: 
-    - Play the game several times to ensure all game mechanics are working correctly.
-    - Test different inputs, including valid and invalid guesses, and ensure the game handles them appropriately.
-    
-2. **Unit Testing**:
-    - Create unit tests for individual functions such as `validate_input`, `validate_name`, `place_ships`, and `is_ship_sunk`.
-    - Use a testing framework like `unittest` or `pytest` to automate these tests.
 
 ## Future Improvements
 
@@ -90,5 +80,31 @@ To test the game, you can follow these steps:
 5. **Save and Load Game**: Implement functionality to save the current game state and load it later.
 
 ---
+
+## Flow
+
+![flow_chart](docs/flow/flow_chart_1.png)
+
+![flow_chart_2](docs/flow/flow_chart_2.png)
+
+## Technologies
+
+- Python - Python is what this program is built in.
+- Emojis - In requirements there is an module needed to install for the game to function, pip install emoji
+
+## Testing
+
+To test the game, you can follow these steps:
+
+1. **Manual Testing**:
+
+    - Play the game several times to ensure all game mechanics are working correctly.
+    - Test different inputs, including valid and invalid guesses, and ensure the game handles them appropriately.
+
+2. **Unit Testing**:
+    - Create unit tests for individual functions such as `validate_input`, `validate_name`, `place_ships`, and `is_ship_sunk`.
+    - Use a testing framework like `unittest` or `pytest` to automate these tests.
+
+## Thank you
 
 Thank you for playing Battleship! If you have any suggestions or feedback, feel free to contribute or open an issue on the GitHub repository.
