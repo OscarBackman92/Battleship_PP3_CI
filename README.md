@@ -159,7 +159,7 @@ The below steps were followed to deploy this project to Heroku:
 - Gareth McGirr - (https://github.com/Gareth-McGirr/motorcycle-rental-management) for readme tips.
 - Sweden Community slack group for tips and inspiration.
 - W3C tutorials were used as a reference for python functions throughout this project.
-- Last but definetly not the least Dasiy McGirr my mentor doe putting up with me.
+- Last but definitely not the least Dasiy McGirr my mentor doe putting up with me.
 
 ## Thank you
 
