@@ -2,6 +2,8 @@
 
 This Battleship game is a console-based implementation of the classic board game where two players (a human and a computer) take turns guessing the locations of each other's ships on a 9x9 grid. The first player to sink all of the opponent's ships wins the game.
 
+Link to live site (https://battleship-pp3-oscar-87f5a22df472.herokuapp.com/)
+
 ## Table of Contents
 
 1. [How to Play](#how-to-play)
@@ -56,14 +58,7 @@ This Battleship game is a console-based implementation of the classic board game
 - **Turn-based Mechanics**: Mimics the classic Battleship game, providing a familiar and engaging experience.
 - **Input Validation**: Ensures user inputs are correct, enhancing the robustness of the game.
 
-
 1. **Install Python**: Ensure you have Python installed on your system. The game is compatible with Python 3.x.
-
-2. **Run the Game**: Execute the script to start the game.
-
-    ```sh
-    python battleship.py
-    ```
 
 ## Future Improvements
 
@@ -84,6 +79,10 @@ This Battleship game is a console-based implementation of the classic board game
 
 - Python - Python is what this program is built in.
 - Emojis - In requirements there is an module needed to install for the game to function, pip install emoji
+- Random - To place ships at random on the computer and player board.
+- Re 
+- Time
+
 
 ## Testing
 
@@ -162,6 +161,7 @@ The below steps were followed to deploy this project to Heroku:
 - Gareth McGirr - (https://github.com/Gareth-McGirr/motorcycle-rental-management) for readme tips.
 - Sweden Community slack group for tips and inspiration.
 - W3C tutorials were used as a reference for python functions throughout this project.
+- If main function from here (https://realpython.com/if-name-main-python/)
 - Last but definitely not the least Dasiy McGirr my mentor for putting up with me.
 
 ## Thank you
