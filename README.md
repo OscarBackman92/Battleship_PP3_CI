@@ -30,6 +30,46 @@ Link to live site (https://battleship-pp3-oscar-87f5a22df472.herokuapp.com/)
 
 ## How it Works
 
+### 1. Imports and Emoji Initialization
+
+The Python code imports necessary modules like `random`, `re`, `time`, and `emoji` for functionality. It also initializes emoji support.
+
+### 2. Global Ship Definitions
+
+The `ships` dictionary defines the ships used in the game along with their sizes.
+
+### 3. Board Creation Function
+
+The `create_board()` function creates a 9x9 empty board with all cells initialized to empty spaces.
+
+### 4. Board Printing Function
+
+The `print_board()` function prints the game board with row numbers on the left and column letters on the top. It optionally hides ships when `hide_ships` parameter is set to True.
+
+### 5. Ship Placement Function
+
+The `place_ships()` function randomly places ships on the board, ensuring they don't overlap or go out of bounds.
+
+### 6. Input Validation Functions
+
+The `validate_input()` and `validate_name()` functions validate user input for guess and name respectively.
+
+### 7. Computer Guess Function
+
+The `computer_guess()` function generates a random guess for the computer player.
+
+### 8. Ship Sunk Check Function
+
+The `is_ship_sunk()` function checks if a specific ship has been sunk by the opponent.
+
+### 9. Game Loop Function
+
+The `play_game()` function is the main game loop where players take turns guessing each other's ships until all ships of one player are sunk.
+
+### 10. Main Function
+
+The `main()` function is the entry point of the program. It displays the welcome message, instructions, and calls `play_game()` to start the game.
+
 ### Game Initialization
 
 - The game begins by displaying a welcome message and instructions.
