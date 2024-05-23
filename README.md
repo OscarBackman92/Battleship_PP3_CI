@@ -77,11 +77,11 @@ Link to live site (https://battleship-pp3-oscar-87f5a22df472.herokuapp.com/)
 
 ## Technologies
 
-- Python - Python is what this program is built in.
-- Emojis - In requirements there is an module needed to install for the game to function, pip install emoji
-- Random - To place ships at random on the computer and player board.
-- Re 
-- Time
+- Python: Python is what this program is built in.
+- Emojis: A module required for the game to function. Install with `pip install emoji`.
+- Random: Used for placing ships at random locations on the computer and player boards.
+- Re: The `re` module is utilized for regular expression operations, which may be used for input validation or pattern matching.
+- Time: Used to handle time-related tasks, such as pauses or delays in the game flow.
 
 
 ## Testing
