@@ -307,8 +307,6 @@ def main():
     print(f'Thanks for playing! Goodbye, {player_name}! 👋')
 
 
-def __init__():
+if __name__ == '__main__':
     main()
 
-
-main()
