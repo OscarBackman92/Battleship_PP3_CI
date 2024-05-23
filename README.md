@@ -77,9 +77,8 @@ This Battleship game is a console-based implementation of the classic board game
 
 ## Flow
 
-![flow_chart](docs/flow/flow_chart_1.png)
+![flow_chart](docs/flow/flow_chart_one.png)
 
-![flow_chart_2](docs/flow/flow_chart_2.png)
 
 ## Technologies
 
