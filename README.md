@@ -119,7 +119,7 @@ Below are the execution tests that are done to this app.
 
 ### PEP8 Validator
 
-![pep8](docs/testing/pep8_validation_240522.png)
+![pep8](docs/testing/pep8_validate_240523.png)
 
 All python code was tested in (https://pep8ci.herokuapp.com/#) with no errors
 
