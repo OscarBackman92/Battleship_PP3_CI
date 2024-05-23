@@ -57,9 +57,9 @@ This Battleship game is a console-based implementation of the classic board game
 - **Input Validation**: Ensures user inputs are correct, enhancing the robustness of the game.
 
 
-2. **Install Python**: Ensure you have Python installed on your system. The game is compatible with Python 3.x.
+1. **Install Python**: Ensure you have Python installed on your system. The game is compatible with Python 3.x.
 
-3. **Run the Game**: Execute the script to start the game.
+2. **Run the Game**: Execute the script to start the game.
 
     ```sh
     python battleship.py
@@ -126,6 +126,7 @@ All python code was tested in (https://pep8ci.herokuapp.com/#) with no errors
 ## Deployment
 
 ### Version Control
+
 The site was created using the Visual Studio Code editor and pushed to github to the remote repository Battleship_PP3_CI
 
 The following git commands were used throughout development to push code to the remote repo:
