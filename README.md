@@ -21,19 +21,29 @@ Link to live site (https://battleship-pp3-oscar-87f5a22df472.herokuapp.com/)
 ## Features
 
 ### 1. Welcome Screen
+
 - **Description**: Upon starting the game, a welcome message and instructions are displayed.
 - **Purpose**: Introduces the player to the game and provides initial instructions on how to play.
 
+![Welcome_Screen](docs/screenshots/open_game.png)
+
 ### 2. Name Input
+
 - **Description**: Players are prompted to enter their name.
 - **Validation**: Ensures the name is non-empty, doesn't start with a number, and is a valid string.
 - **Purpose**: Personalizes the game experience and ensures valid input from the player.
 
+![Input_your_name](docs/screenshots/enter_name.png)
+
 ### 3. Game Board Setup
+
 - **Description**: A 9x9 grid board is created for both the player and the computer.
 - **Purpose**: Sets up the game environment where ships will be placed and guesses will be made.
 
+![Board](docs/screenshots/game_has_started.png)
+
 ### 4. Ship Placement
+
 - **Description**: Ships are randomly placed on both the player's and the computer's boards.
 - **Types of Ships**: 
   - Carrier (5 cells)
@@ -43,32 +53,55 @@ Link to live site (https://battleship-pp3-oscar-87f5a22df472.herokuapp.com/)
   - Destroyer (2 cells)
 - **Purpose**: Mimics the traditional setup phase of Battleship, ensuring a unique game experience each time.
 
+![Ships_dictionary](docs/screenshots/ships_dict.png)
+
 ### 5. Turn-Based Gameplay
+
 - **Player Turn**:
   - **Description**: The player enters coordinates to guess the location of the computer's ships.
   - **Validation**: Ensures the input is in the correct format (e.g., A1) and within the bounds of the board.
+
+![Players_Turn](docs/screenshots/player_guess.png)
+
 - **Computer Turn**:
   - **Description**: The computer randomly guesses the location of the player's ships.
 - **Purpose**: Facilitates alternating turns between the player and the computer, simulating the classic Battleship gameplay.
 
+![Computers_Turn](docs/screenshots/computer_guess.png)
+
+
 ### 6. Hit and Miss Feedback
+
 - **Description**: Feedback is provided for each guess, indicating whether it was a hit or a miss.
 - **Visual Representation**:
   - 'X' marks a hit.
   - 'M' marks a miss.
-- **Purpose**: Keeps the player informed of their progress and helps them strategize their next move.
+  - **Purpose**: Keeps the player informed of their progress and helps them strategize their next move.
+
+![Player_hit](docs/screenshots/player_hit.png)
+
+![Player_miss](docs/screenshots/player_miss.png)
 
 ### 7. Ship Sunk Notifications
+
 - **Description**: Notifies the player when they have sunk one of the computer's ships and vice versa.
 - **Purpose**: Adds to the excitement and progression of the game, providing a sense of achievement.
 
+![Player_sunk_ship](docs/screenshots/player_sunk_carrier.png)
+
+![Computer_ship_sunk](docs/screenshots/computer_sunk_crusier.png)
+
 ### 8. Game End Conditions
+
 - **Description**: The game ends when all ships of either the player or the computer are sunk.
 - **Victory Message**: Displayed when the player sinks all the computer's ships.
 - **Defeat Message**: Displayed when the computer sinks all the player's ships.
 - **Purpose**: Defines the winning and losing conditions, bringing the game to a natural conclusion.
 
+![Player_win](docs/screenshots/player_win.png)
+
 ### 9. Exit Functionality
+
 - **Description**: Allows the player to exit the game at any time by typing 'exit'.
 - **Purpose**: Provides an option for the player to quit the game gracefully if they choose to do so.
 
