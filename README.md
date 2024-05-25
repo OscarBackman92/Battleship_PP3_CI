@@ -1,7 +1,5 @@
 # Battleship Game
 
-![GIF_of_App](docs/screenshots/app.gif)
-
 This Battleship game is a console-based implementation of the classic board game where two players (a human and a computer) take turns guessing the locations of each other's ships on a 9x9 grid. The first player to sink all of the opponent's ships wins the game.
 
 Link to live site (https://battleship-pp3-oscar-87f5a22df472.herokuapp.com/)
@@ -271,9 +269,12 @@ The `main()` function is the entry point of the program. It displays the welcome
 
 ## Credits
 
-- **Code Institute**: Provided the base template and project guidelines.
-- **Python Documentation**: For extensive resources and documentation.
-- **Stack Overflow Community**: For troubleshooting and solutions.
+- Google was used for inspiration and research on how to build a battleship game
+- Gareth McGirr - (https://github.com/Gareth-McGirr/motorcycle-rental-management) for readme tips.
+- Sweden Community slack group for tips and inspiration.
+- W3C tutorials were used as a reference for python functions throughout this project.
+- If main function from here (https://realpython.com/if-name-main-python/)
+- Last but definitely not the least Dasiy McGirr my mentor for putting up with me
 
 ## Thank You
 
