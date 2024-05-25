@@ -100,20 +100,32 @@ Link to live site (https://battleship-pp3-oscar-87f5a22df472.herokuapp.com/)
 
 ![Player_win](docs/screenshots/player_win.png)
 
+![Player_defeat](docs/screenshots/defeat.png)
+
 ### 9. Exit Functionality
 
 - **Description**: Allows the player to exit the game at any time by typing 'exit'.
 - **Purpose**: Provides an option for the player to quit the game gracefully if they choose to do so.
+
+![Exit](docs/screenshots/exit_game.png)
 
 ### User Interaction
 
 - **Simple Text-Based Interface**: The game runs in the console, making it accessible and easy to play without the need for a graphical user interface.
 - **Prompts and Messages**: Clear prompts and messages guide the player through each stage of the game, ensuring a smooth and engaging experience.
 
+![input](docs/screenshots/player_guess.png)
+
 ### Error Handling
 
 - **Input Validation**: Ensures that all user inputs are valid and within the expected format, preventing errors and enhancing the robustness of the game.
 - **Duplicate Guess Prevention**: Prevents players from guessing the same coordinate more than once, maintaining the integrity of the game.
+
+![Error](docs/screenshots/invalid_guess.png)
+
+![Invalid](docs/screenshots/invalid_name_empty.png)
+
+![invalid_Name](docs/screenshots/invalid_name_numbers.png)
 
 ### Future Feature Considerations
 
