@@ -6,16 +6,89 @@ Link to live site (https://battleship-pp3-oscar-87f5a22df472.herokuapp.com/)
 
 ## Table of Contents
 
-1. [How to Play](#how-to-play)
-2. [How it Works](#how-it-works)
-3. [Why This Implementation](#why-this-implementation)
-4. [Future Improvements](#future-improvements)
-5. [Flow Chart](#flow)
-6. [Technologies](#technologies)
-7. [Testing](#testing)
-8. [Deployment](#deployment)
-9. [Credits](#credits)
-10. [Thank you!](#thank-you)
+1. [Features](#features)
+2. [How to Play](#how-to-play)
+3. [How it Works](#how-it-works)
+4. [Why This Implementation](#why-this-implementation)
+5. [Future Improvements](#future-improvements)
+6. [Flow Chart](#flow-chart)
+7. [Technologies](#technologies)
+8. [Testing](#testing)
+9. [Deployment](#deployment)
+10. [Credits](#credits)
+11. [Thank You](#thank-you)
+
+## Features
+
+### 1. Welcome Screen
+- **Description**: Upon starting the game, a welcome message and instructions are displayed.
+- **Purpose**: Introduces the player to the game and provides initial instructions on how to play.
+
+### 2. Name Input
+- **Description**: Players are prompted to enter their name.
+- **Validation**: Ensures the name is non-empty, doesn't start with a number, and is a valid string.
+- **Purpose**: Personalizes the game experience and ensures valid input from the player.
+
+### 3. Game Board Setup
+- **Description**: A 9x9 grid board is created for both the player and the computer.
+- **Purpose**: Sets up the game environment where ships will be placed and guesses will be made.
+
+### 4. Ship Placement
+- **Description**: Ships are randomly placed on both the player's and the computer's boards.
+- **Types of Ships**: 
+  - Carrier (5 cells)
+  - Battleship (4 cells)
+  - Cruiser (3 cells)
+  - Submarine (3 cells)
+  - Destroyer (2 cells)
+- **Purpose**: Mimics the traditional setup phase of Battleship, ensuring a unique game experience each time.
+
+### 5. Turn-Based Gameplay
+- **Player Turn**:
+  - **Description**: The player enters coordinates to guess the location of the computer's ships.
+  - **Validation**: Ensures the input is in the correct format (e.g., A1) and within the bounds of the board.
+- **Computer Turn**:
+  - **Description**: The computer randomly guesses the location of the player's ships.
+- **Purpose**: Facilitates alternating turns between the player and the computer, simulating the classic Battleship gameplay.
+
+### 6. Hit and Miss Feedback
+- **Description**: Feedback is provided for each guess, indicating whether it was a hit or a miss.
+- **Visual Representation**:
+  - 'X' marks a hit.
+  - 'M' marks a miss.
+- **Purpose**: Keeps the player informed of their progress and helps them strategize their next move.
+
+### 7. Ship Sunk Notifications
+- **Description**: Notifies the player when they have sunk one of the computer's ships and vice versa.
+- **Purpose**: Adds to the excitement and progression of the game, providing a sense of achievement.
+
+### 8. Game End Conditions
+- **Description**: The game ends when all ships of either the player or the computer are sunk.
+- **Victory Message**: Displayed when the player sinks all the computer's ships.
+- **Defeat Message**: Displayed when the computer sinks all the player's ships.
+- **Purpose**: Defines the winning and losing conditions, bringing the game to a natural conclusion.
+
+### 9. Exit Functionality
+- **Description**: Allows the player to exit the game at any time by typing 'exit'.
+- **Purpose**: Provides an option for the player to quit the game gracefully if they choose to do so.
+
+### User Interaction
+
+- **Simple Text-Based Interface**: The game runs in the console, making it accessible and easy to play without the need for a graphical user interface.
+- **Prompts and Messages**: Clear prompts and messages guide the player through each stage of the game, ensuring a smooth and engaging experience.
+
+### Error Handling
+
+- **Input Validation**: Ensures that all user inputs are valid and within the expected format, preventing errors and enhancing the robustness of the game.
+- **Duplicate Guess Prevention**: Prevents players from guessing the same coordinate more than once, maintaining the integrity of the game.
+
+### Future Feature Considerations
+
+- **Enhanced AI**: Developing a more strategic computer opponent.
+- **Graphical User Interface**: Transitioning to a GUI-based version for improved user experience.
+- **Multiplayer Mode**: Allowing two human players to compete against each other.
+- **Customizable Game Settings**: Enabling players to customize board size, number of ships, and other game settings.
+- **Save and Load Functionality**: Allowing players to save their game progress and resume later.
 
 ## How to Play
 
@@ -98,8 +171,6 @@ The `main()` function is the entry point of the program. It displays the welcome
 - **Turn-based Mechanics**: Mimics the classic Battleship game, providing a familiar and engaging experience.
 - **Input Validation**: Ensures user inputs are correct, enhancing the robustness of the game.
 
-1. **Install Python**: Ensure you have Python installed on your system. The game is compatible with Python 3.x.
-
 ## Future Improvements
 
 1. **Enhanced AI**: Implement a more sophisticated AI for the computer player to make smarter guesses.
@@ -108,102 +179,59 @@ The `main()` function is the entry point of the program. It displays the welcome
 4. **Customizable Board Size and Ships**: Allow players to customize the board size and the number and size of ships.
 5. **Save and Load Game**: Implement functionality to save the current game state and load it later.
 
----
-
-## Flow
+## Flow Chart
 
 ![flow_chart](docs/flow/flow_chart_one.png)
 
-
 ## Technologies
 
-- Python: Python is what this program is built in.
-- Emojis: A module required for the game to function. Install with `pip install emoji`.
-- Random: Used for placing ships at random locations on the computer and player boards.
-- Re: The `re` module is utilized for regular expression operations, which may be used for input validation or pattern matching.
-- Time: Used to handle time-related tasks, such as pauses or delays in the game flow.
-
+- Python: Python is what this program is built with, and I used several standard Python libraries and one external library for the program.
+  - Random: To place ships on the board at random.
+  - Re: Used to validate user inputs.
+  - Time: Used to delay computer response for better user experience.
+  - OS: To clear the console screen
+  - emoji: To display emojis in the console game.
 
 ## Testing
 
-Below are the execution tests that are done to this app.
+### 1. **Manual Testing**: 
 
-### Functional Testing
+- Tested various scenarios including all possible valid and invalid inputs to ensure that the program behaves as expected.
+- Simulated full games to test all winning and losing conditions.
+- Verified the random placement of ships and the random guessing mechanism of the computer player.
 
-| Description                 | Steps                                    | Expected                                                                                                                   | Actual                                                                                                                     | Pass |
-| --------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ---- |
-| Open app                    | Run the program                          | Welcome message, instructions and "Enter your name"                                                                        | Welcome message instructions and "Enter your Name"                                                                         | Pass |
-| Enter your name             | Type in your name                        | See "Press enter to start the game"                                                                                        | Sees "Press enter to start the game                                                                                        | Pass |
-| Enter you name Empty        | Just press enter                         | Invalid Name. Please enter valid name                                                                                      | Invalid Name. Please enter valid name                                                                                      | Pass |
-| Enter your name 3 spaces    | Press space three times and then enter   | Invalid Name. Please enter valid name                                                                                      | Invalid Name. Please enter valid name                                                                                      | Pass |
-| Enter name numbers          | Enter numbers for name                   | Invalid Name. Please enter valid name                                                                                      | Invalid Name. Please enter valid name                                                                                      | Pass |
-| Enter name then numbers     | enter your name and numbers              | Outputs"Press enter to start game"                                                                                         | Outputs"Press enter to start game"                                                                                         | Pass |
-| Press enter                 | Press Enter                              | Outputs "placing ships on the board...Wave emojis x5" and loades player board with 5 different ships placed at random      | Outputs "placing ships on the board...Wave emojis x5" and loades player board with 5 different ships placed at random      | Pass |
-| Missed guess                | Enter an e.g A1 Guess                    | Outputs Player missed enemy ship and marks the computer board with an M for miss on input location                         | Outputs Player missed enemy ship and marks the computer board with an M for miss on input location                         | Pass |
-| Guess hit                   | Enter an e.g A1 Guess                    | Outputs Player hit an enemy ship, Marks computer board with an X on input location                                         | Outputs Player hit an enemy ship, Marks computer board with an X on input location                                         | Pass |
-| Invalid guess               | Enter an invalid guess e.g m5            | Outputs "invalid input. Please enter a valid guess"                                                                        | Outputs "invalid input. Please enter a valid guess"                                                                        | Pass |
-| Already made guess          | Enter an already made guess e.g A1 twice | Outputs you have already guess the coordinate. try again                                                                   | Outputs you have already guess the coordinate. try again                                                                   | Pass |
-| Computer guess miss         | Computer missed                          | Outputs the coordinate for computer guess "Enemy missed you ship" Enemy guess e.g f7 Marks player board with an M for miss | Outputs the coordinate for computer guess "Enemy missed you ship" Enemy guess e.g f7 Marks player board with an M for miss | Pass |
-| Computer guess hit          | Computer hit                             | Outputs the coordinate for computer guess "Enemy hit your ship" Enemy guess e.g f7 Marks player board with an X for hit    | Outputs the coordinate for computer guess "Enemy hit your ship" Enemy guess e.g f7 Marks player board with an X for hit    | Pass |
-| Player Sunk destroyer ship  | Sink a destryoer                         | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Destroyer                                                | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Destroyer                                                | Pass |
-| Player Sunk Crusier ship    | Sink a Crusier                           | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Crusier                                                  | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Crusier                                                  | Pass |
-| Player Sunk Submarine       | Sink a Submarine                         | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Submarine                                                | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Submarine                                                | Pass |
-| Player Sunk Battleship      | Sink a Battleship                        | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Battleship                                               | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Battleship                                               | Pass |
-| player Sunk Carrier         | Sink a Carrier                           | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Carrier                                                  | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Carrier                                                  | Pass |
-| Compter Sunk destroyer ship | Computer sunk a Destroyer                | Outputs Enemy hit your ship, Outputs The computer sunk your Destroyer                                                      | Outputs Enemy hit your ship, Outputs Enemy sunk your Destroyer                                                             | Pass |
-| Computer Sunk Crusier ship  | Computer sunk a Crusier                  | Outputs Enemy hit your ship, Outputs The computer sunk your Crusier                                                        | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Crusier                                                  | Pass |
-| Computer Sunk Submarine     | Computer sunk a Submarine                | Outputs Enemy hit your ship, Outputs The computer sunk your Submarine                                                      | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Submarine                                                | Pass |
-| ComputerSunk Battleship     | Computer sunk a Battleship               | Outputs Enemy hit your ship, Outputs The computer sunk your Battleship                                                     | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Battleship                                               | Pass |
-| Computer Sunk Carrier       | Computer sunk a Carrier                  | Outputs Enemy hit your ship, Outputs The computer sunk your Carrier                                                        | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Carrier                                                  | Pass |
-| All player ships sunk       | Computer sinks all the players ships     | Outputs Defeat! The enemy sunk all your ships. You lose                                                                    | Outputs Defeat! The enemy sunk all your ships. You lose                                                                    | Pass |
-| All computer ships sunk     | The player sinks all enemy ship          | Outputs Victory! You sunk all the enemy 's ships. You win!                                                                 | Outputs Victory! You sunk all the enemy 's ships. You win!                                                                 | Pass |
-| Exit game on turn           | type exit on your turn                   | Outputs Quitting the game...Traitor Thanks you playing! Goodbye Player                                                     | Outputs Quitting the game...Traitor Thanks you playing! Goodbye Player                                                     | Pass |
+### 2. **Unit Testing**:
 
-### PEP8 Validator
+- Implemented unit tests for input validation functions to ensure they correctly handle valid and invalid inputs.
 
-![pep8](docs/testing/pep8_validate_240523.png)
+### 3. **Automated Testing**:
 
-All python code was tested in (https://pep8ci.herokuapp.com/#) with no errors
+- Utilized automated testing frameworks like `unittest` to run a suite of tests and verify the correctness of individual components.
+
+### 4. **User Testing**:
+
+- Collected feedback from a small group of users to identify any usability issues and ensure the game is enjoyable.
 
 ## Deployment
 
-### Version Control
-
-The site was created using the Visual Studio Code editor and pushed to github to the remote repository Battleship_PP3_CI
-
-The following git commands were used throughout development to push code to the remote repo:
-
-
-```git commit -m "commit message"``` - This command was used to commit changes to the local repository queue ready for the final step.
-
-```git push``` - This command was used to push all committed code to the remote repository on github.
-
-### Heroku Deployment
-
-The below steps were followed to deploy this project to Heroku:
-
-- Go to Heroku and click "New" to create a new app.
-- Choose an app name and region region, click "Create app".
-- Navigate to Buildpacks and add buildpacks for Python and NodeJS (in that order).
-- Navigate to "Deploy". Set the deployment method to Github and enter repository name and connect.
-- Scroll down to Manual Deploy, select "main" branch and click "Deploy Branch".
-- The app will now be deployed to heroku
-
-### Clone Locally
-
-- Open IDE of choice and type the following into the terminal:
-     ```git clone https://github.com/OscarBackman92/Battleship_PP3_CI```
-- Project will now be cloned locally.
+1. **Setup Environment**:
+    - Ensure Python is installed.
+    - Install necessary dependencies using `pip install -r requirements.txt`.
+2. **Run the Game**:
+    - Execute the `battleship.py` script using Python: `python battleship.py`.
+3. **Hosting**:
+    - The game can be hosted on platforms like Heroku for wider accessibility.
 
 ## Credits
 
-- Google was used for inspiration and research on how to build a battleship game
-- Gareth McGirr - (https://github.com/Gareth-McGirr/motorcycle-rental-management) for readme tips.
-- Sweden Community slack group for tips and inspiration.
-- W3C tutorials were used as a reference for python functions throughout this project.
-- If main function from here (https://realpython.com/if-name-main-python/)
-- Last but definitely not the least Dasiy McGirr my mentor for putting up with me.
+- **Code Institute**: Provided the base template and project guidelines.
+- **Python Documentation**: For extensive resources and documentation.
+- **Stack Overflow Community**: For troubleshooting and solutions.
 
-## Thank you
+## Thank You
 
-Thank you for playing Battleship! If you have any suggestions or feedback, feel free to contribute or open an issue on the GitHub repository.
+Thank you for checking out my Battleship game! I hope you enjoy playing it as much as I enjoyed building it. If you have any feedback or suggestions for improvements, feel free to reach out.
+
+---
+
+Link to live site (https://battleship-pp3-oscar-87f5a22df472.herokuapp.com/)
