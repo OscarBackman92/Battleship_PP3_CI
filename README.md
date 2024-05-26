@@ -216,14 +216,6 @@ The `main()` function is the entry point of the program. It displays the welcome
 - **Turn-based Mechanics**: Mimics the classic Battleship game, providing a familiar and engaging experience.
 - **Input Validation**: Ensures user inputs are correct, enhancing the robustness of the game.
 
-## Future Improvements
-
-1. **Enhanced AI**: Implement a more sophisticated AI for the computer player to make smarter guesses.
-2. **Graphical User Interface**: Develop a GUI version of the game to make it more visually appealing and user-friendly.
-3. **Multiplayer Mode**: Add a feature to allow two human players to play against each other, either locally or over the internet.
-4. **Customizable Board Size and Ships**: Allow players to customize the board size and the number and size of ships.
-5. **Save and Load Game**: Implement functionality to save the current game state and load it later.
-
 ## Flow Chart
 
 ![flow_chart](docs/flow/flow_chart_one.png)
