@@ -234,47 +234,53 @@ The `main()` function is the entry point of the program. It displays the welcome
   - Random: To place ships on the board at random.
   - Re: Used to validate user inputs.
   - Time: Used to delay computer response for better user experience.
-  - OS: To clear the console screen
   - emoji: To display emojis in the console game.
 
 ## Testing
 
-### 1. **Manual Testing**: 
+### Functional testing
 
-- Tested various scenarios including all possible valid and invalid inputs to ensure that the program behaves as expected.
-- Simulated full games to test all winning and losing conditions.
-- Verified the random placement of ships and the random guessing mechanism of the computer player.
+| Description                 | Steps                                    | Expected                                                                                                                   | Actual                                                                                                                     | Pass |
+| --------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ---- |
+| Open app                    | Run the program                          | Welcome message, instructions and "Enter your name"                                                                        | Welcome message instructions and "Enter your Name"                                                                         | Pass |
+| Enter your name             | Type in your name                        | See "Press enter to start the game"                                                                                        | Sees "Press enter to start the game                                                                                        | Pass |
+| Enter you name Empty        | Just press enter                         | Invalid Name. Please enter valid name                                                                                      | Invalid Name. Please enter valid name                                                                                      | Pass |
+| Enter your name 3 spaces    | Press space three times and then enter   | Invalid Name. Please enter valid name                                                                                      | Invalid Name. Please enter valid name                                                                                      | Pass |
+| Enter name numbers          | Enter numbers for name                   | Invalid Name. Please enter valid name                                                                                      | Invalid Name. Please enter valid name                                                                                      | Pass |
+| Enter name then numbers     | enter your name and numbers              | Outputs"Press enter to start game"                                                                                         | Outputs"Press enter to start game"                                                                                         | Pass |
+| Press enter                 | Press Enter                              | Outputs "placing ships on the board...Wave emojis x5" and loades player board with 5 different ships placed at random      | Outputs "placing ships on the board...Wave emojis x5" and loades player board with 5 different ships placed at random      | Pass |
+| Missed guess                | Enter an e.g A1 Guess                    | Outputs Player missed enemy ship and marks the computer board with an M for miss on input location                         | Outputs Player missed enemy ship and marks the computer board with an M for miss on input location                         | Pass |
+| Guess hit                   | Enter an e.g A1 Guess                    | Outputs Player hit an enemy ship, Marks computer board with an X on input location                                         | Outputs Player hit an enemy ship, Marks computer board with an X on input location                                         | Pass |
+| Invalid guess               | Enter an invalid guess e.g m5            | Outputs "invalid input. Please enter a valid guess"                                                                        | Outputs "invalid input. Please enter a valid guess"                                                                        | Pass |
+| Already made guess          | Enter an already made guess e.g A1 twice | Outputs you have already guess the coordinate. try again                                                                   | Outputs you have already guess the coordinate. try again                                                                   | Pass |
+| Computer guess miss         | Computer missed                          | Outputs the coordinate for computer guess "Enemy missed you ship" Enemy guess e.g f7 Marks player board with an M for miss | Outputs the coordinate for computer guess "Enemy missed you ship" Enemy guess e.g f7 Marks player board with an M for miss | Pass |
+| Computer guess hit          | Computer hit                             | Outputs the coordinate for computer guess "Enemy hit your ship" Enemy guess e.g f7 Marks player board with an X for hit    | Outputs the coordinate for computer guess "Enemy hit your ship" Enemy guess e.g f7 Marks player board with an X for hit    | Pass |
+| Player Sunk destroyer ship  | Sink a destryoer                         | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Destroyer                                                | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Destroyer                                                | Pass |
+| Player Sunk Crusier ship    | Sink a Crusier                           | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Crusier                                                  | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Crusier                                                  | Pass |
+| Player Sunk Submarine       | Sink a Submarine                         | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Submarine                                                | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Submarine                                                | Pass |
+| Player Sunk Battleship      | Sink a Battleship                        | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Battleship                                               | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Battleship                                               | Pass |
+| player Sunk Carrier         | Sink a Carrier                           | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Carrier                                                  | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Carrier                                                  | Pass |
+| Compter Sunk destroyer ship | Computer sunk a Destroyer                | Outputs Enemy hit your ship, Outputs The computer sunk your Destroyer                                                      | Outputs Enemy hit your ship, Outputs Enemy sunk your Destroyer                                                             | Pass |
+| Computer Sunk Crusier ship  | Computer sunk a Crusier                  | Outputs Enemy hit your ship, Outputs The computer sunk your Crusier                                                        | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Crusier                                                  | Pass |
+| Computer Sunk Submarine     | Computer sunk a Submarine                | Outputs Enemy hit your ship, Outputs The computer sunk your Submarine                                                      | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Submarine                                                | Pass |
+| ComputerSunk Battleship     | Computer sunk a Battleship               | Outputs Enemy hit your ship, Outputs The computer sunk your Battleship                                                     | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Battleship                                               | Pass |
+| Computer Sunk Carrier       | Computer sunk a Carrier                  | Outputs Enemy hit your ship, Outputs The computer sunk your Carrier                                                        | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Carrier                                                  | Pass |
+| All player ships sunk       | Computer sinks all the players ships     | Outputs Defeat! The enemy sunk all your ships. You lose                                                                    | Outputs Defeat! The enemy sunk all your ships. You lose                                                                    | Pass |
+| All computer ships sunk     | The player sinks all enemy ship          | Outputs Victory! You sunk all the enemy 's ships. You win!                                                                 | Outputs Victory! You sunk all the enemy 's ships. You win!                                                                 | Pass |
+| Exit game on turn           | type exit on your turn                   | Outputs Quitting the game...Traitor Thanks you playing! Goodbye Player                                                     | Outputs Quitting the game...Traitor Thanks you playing! Goodbye Player                                                     | Pass |
 
-### 2. **Unit Testing**:
+### Pep8 Validator
 
-- Implemented unit tests for input validation functions to ensure they correctly handle valid and invalid inputs.
-
-### 3. **Automated Testing**:
-
-- Utilized automated testing frameworks like `unittest` to run a suite of tests and verify the correctness of individual components.
-
-### 4. **User Testing**:
-
-- Collected feedback from a small group of users to identify any usability issues and ensure the game is enjoyable.
-
-## Deployment
-
-1. **Setup Environment**:
-    - Ensure Python is installed.
-    - Install necessary dependencies using `pip install -r requirements.txt`.
-2. **Run the Game**:
-    - Execute the `battleship.py` script using Python: `python battleship.py`.
-3. **Hosting**:
-    - The game can be hosted on platforms like Heroku for wider accessibility.
+![pep8](docs/testing/pep8_validate_240523.png)
 
 ## Credits
 
-- Google was used for inspiration and research on how to build a battleship game
-- Gareth McGirr - (https://github.com/Gareth-McGirr/motorcycle-rental-management) for readme tips.
+- Google was used for inspiration and research on how to build a battleship game.
+- Gareth McGirr - (https://github.com/Gareth-McGirr/motorcycle-rental-management) for readme tips.And how to apply a gif in to readme.
 - Sweden Community slack group for tips and inspiration.
 - W3C tutorials were used as a reference for python functions throughout this project.
 - If main function from here (https://realpython.com/if-name-main-python/)
-- Last but definitely not the least Dasiy McGirr my mentor for putting up with me
+- Last but definitely not the least Dasiy McGirr my mentor for putting up with me. And on how to make a gif for the readme.
 
 ## Thank You
 
