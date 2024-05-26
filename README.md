@@ -284,8 +284,10 @@ The `main()` function is the entry point of the program. It displays the welcome
 The site was created using the Visual Studio Code editor and pushed to github to the remote repository Battleship_PP3_CI
 
 The following git commands were used throughout development to push code to the remote repo:
-```git commit -m "commit message"``` - This command was used to commit changes to the local repository queue ready for the final step.
-```git push``` - This command was used to push all committed code to the remote repository on github.
+
+- ```git add .``` - This command was used to add the file(s) to the staging area before they are committed.
+- ```git commit -m "commit message"``` - This command was used to commit changes to the local repository queue ready for the final step.
+- ```git push``` - This command was used to push all committed code to the remote repository on github.
 
 ### Heroku Deployment
 
