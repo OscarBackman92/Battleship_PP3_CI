@@ -6,17 +6,16 @@ Link to live site (https://battleship-pp3-oscar-87f5a22df472.herokuapp.com/)
 
 ## Table of Contents
 
-1. [Features](#features)
-2. [How to Play](#how-to-play)
-3. [How it Works](#how-it-works)
-4. [Why This Implementation](#why-this-implementation)
-5. [Future Improvements](#future-improvements)
-6. [Flow Chart](#flow-chart)
-7. [Technologies](#technologies)
-8. [Testing](#testing)
-9. [Deployment](#deployment)
-10. [Credits](#credits)
-11. [Thank You](#thank-you)
+1. [How to Play](#how-to-play)
+2. [How it Works](#how-it-works)
+3. [Why This Implementation](#why-this-implementation)
+4. [Future Improvements](#future-improvements)
+5. [Flow Chart](#flow-chart)
+6. [Technologies](#technologies)
+7. [Testing](#testing)
+8. [Deployment](#deployment)
+9. [Credits](#credits)
+10. [Thank you!](#thank-you)
 
 ## Features
 
@@ -127,7 +126,7 @@ Link to live site (https://battleship-pp3-oscar-87f5a22df472.herokuapp.com/)
 
 ![invalid_Name](docs/screenshots/invalid_name_numbers.png)
 
-### Future Feature Considerations
+### Future Improvements
 
 - **Enhanced AI**: Developing a more strategic computer opponent.
 - **Graphical User Interface**: Transitioning to a GUI-based version for improved user experience.
@@ -264,6 +263,33 @@ The `main()` function is the entry point of the program. It displays the welcome
 ### Pep8 Validator
 
 ![pep8](docs/testing/pep8_validate_240523.png)
+
+## Deployment
+
+### Version Control
+
+The site was created using the Visual Studio Code editor and pushed to github to the remote repository Battleship_PP3_CI
+
+The following git commands were used throughout development to push code to the remote repo:
+```git commit -m "commit message"``` - This command was used to commit changes to the local repository queue ready for the final step.
+```git push``` - This command was used to push all committed code to the remote repository on github.
+
+### Heroku Deployment
+
+The below steps were followed to deploy this project to Heroku:
+- Go to Heroku and click "New" to create a new app.
+
+- Choose an app name and region region, click "Create app".
+- Navigate to Buildpacks and add buildpacks for Python and NodeJS (in that order).
+- Navigate to "Deploy". Set the deployment method to Github and enter repository name and connect.
+- Scroll down to Manual Deploy, select "main" branch and click "Deploy Branch".
+- The app will now be deployed to heroku
+
+### Clone Locally
+
+- Open IDE of choice and type the following into the terminal:
+     ```git clone https://github.com/OscarBackman92/Battleship_PP3_CI```
+- Project will now be cloned locally.
 
 ## Credits
 
