@@ -1,21 +1,35 @@
 # Battleship Game
 
+![GIF_of_App](docs/screenshots/app.gif)
+
 This Battleship game is a console-based implementation of the classic board game where two players (a human and a computer) take turns guessing the locations of each other's ships on a 9x9 grid. The first player to sink all of the opponent's ships wins the game.
 
 Link to live site (https://battleship-pp3-oscar-87f5a22df472.herokuapp.com/)
 
 ## Table of Contents
 
-1. [How to Play](#how-to-play)
-2. [How it Works](#how-it-works)
-3. [Why This Implementation](#why-this-implementation)
-4. [Future Improvements](#future-improvements)
-5. [Flow Chart](#flow-chart)
-6. [Technologies](#technologies)
-7. [Testing](#testing)
-8. [Deployment](#deployment)
-9. [Credits](#credits)
-10. [Thank you!](#thank-you)
+1. [Features](#features)
+   - [Welcome Screen](#1-welcome-screen)
+   - [Name Input](#2-name-input)
+   - [Game Board Setup](#3-game-board-setup)
+   - [Ship Placement](#4-ship-placement)
+   - [Turn-Based Gameplay](#5-turn-based-gameplay)
+   - [Hit and Miss Feedback](#6-hit-and-miss-feedback)
+   - [Ship Sunk Notifications](#7-ship-sunk-notifications)
+   - [Game End Conditions](#8-game-end-conditions)
+   - [Exit Functionality](#9-exit-functionality)
+   - [User Interaction](#user-interaction)
+   - [Error Handling](#error-handling)
+2. [Future Improvements](#future-improvements)
+3. [How to Play](#how-to-play)
+4. [How it Works](#how-it-works)
+5. [Why This Implementation](#why-this-implementation)
+6. [Flow Chart](#flow-chart)
+7. [Technologies](#technologies)
+8. [Testing](#testing)
+9. [Deployment](#deployment)
+10. [Credits](#credits)
+11. [Thank You](#thank-you)
 
 ## Features
 
@@ -44,7 +58,7 @@ Link to live site (https://battleship-pp3-oscar-87f5a22df472.herokuapp.com/)
 ### 4. Ship Placement
 
 - **Description**: Ships are randomly placed on both the player's and the computer's boards.
-- **Types of Ships**: 
+- **Types of Ships**:
   - Carrier (5 cells)
   - Battleship (4 cells)
   - Cruiser (3 cells)
@@ -67,7 +81,6 @@ Link to live site (https://battleship-pp3-oscar-87f5a22df472.herokuapp.com/)
 - **Purpose**: Facilitates alternating turns between the player and the computer, simulating the classic Battleship gameplay.
 
 ![Computers_Turn](docs/screenshots/computer_guess.png)
-
 
 ### 6. Hit and Miss Feedback
 
@@ -251,7 +264,7 @@ The `main()` function is the entry point of the program. It displays the welcome
 | Player Sunk Submarine       | Sink a Submarine                         | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Submarine                                                | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Submarine                                                | Pass |
 | Player Sunk Battleship      | Sink a Battleship                        | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Battleship                                               | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Battleship                                               | Pass |
 | player Sunk Carrier         | Sink a Carrier                           | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Carrier                                                  | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Carrier                                                  | Pass |
-| Compter Sunk destroyer ship | Computer sunk a Destroyer                | Outputs Enemy hit your ship, Outputs The computer sunk your Destroyer                                                      | Outputs Enemy hit your ship, Outputs Enemy sunk your Destroyer                                                             | Pass |
+| Computer Sunk destroyer ship | Computer sunk a Destroyer                | Outputs Enemy hit your ship, Outputs The computer sunk your Destroyer                                                      | Outputs Enemy hit your ship, Outputs Enemy sunk your Destroyer                                                             | Pass |
 | Computer Sunk Crusier ship  | Computer sunk a Crusier                  | Outputs Enemy hit your ship, Outputs The computer sunk your Crusier                                                        | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Crusier                                                  | Pass |
 | Computer Sunk Submarine     | Computer sunk a Submarine                | Outputs Enemy hit your ship, Outputs The computer sunk your Submarine                                                      | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Submarine                                                | Pass |
 | ComputerSunk Battleship     | Computer sunk a Battleship               | Outputs Enemy hit your ship, Outputs The computer sunk your Battleship                                                     | Outputs Player hit an enemy ship, Outputs Player sunk the enemy's Battleship                                               | Pass |
