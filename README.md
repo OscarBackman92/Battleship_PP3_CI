@@ -4,7 +4,7 @@
 
 This Battleship game is a console-based implementation of the classic board game where two players (a human and a computer) take turns guessing the locations of each other's ships on a 9x9 grid. The first player to sink all of the opponent's ships wins the game.
 
-Link to live site (https://battleship-pp3-oscar-87f5a22df472.herokuapp.com/)
+Link to live site https://python3battleship-c25008d31b4b.herokuapp.com/
 
 ## Table of Contents
 
